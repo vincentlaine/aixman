@@ -1,0 +1,144 @@
+#parcours {
+  background: var(--warm);
+  padding: 100px 0 0;
+}
+
+.parcours-header {
+  margin-bottom: 56px;
+}
+
+.disciplines-tabs {
+  display: flex;
+  gap: 0;
+  border-bottom: 2px solid var(--line);
+  margin-bottom: 0;
+}
+
+.disc-tab {
+  padding: 14px 28px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--mid);
+  border-bottom: 2px solid transparent;
+  margin-bottom: -2px;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.disc-tab.active {
+  color: var(--ink);
+  border-bottom-color: var(--ink);
+}
+
+.disc-tab:hover:not(.active) {
+  color: var(--ink);
+}
+
+.parcours-content {
+  display: none;
+  grid-template-columns: 1fr 1fr;
+}
+
+.parcours-content.active {
+  display: grid;
+}
+
+.parcours-info {
+  padding: 56px 56px 56px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.parcours-discipline-name {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.swim-color {
+  color: var(--swim);
+}
+.bike-color {
+  color: var(--bike);
+}
+.run-color {
+  color: var(--run);
+}
+
+.parcours-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 38px;
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 8px;
+  color: var(--ink);
+}
+
+.parcours-dist {
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 24px;
+}
+
+.parcours-desc {
+  font-size: 15px;
+  line-height: 1.75;
+  color: var(--mid);
+  margin-bottom: 32px;
+}
+
+.parcours-stats {
+  display: flex;
+  gap: 32px;
+  padding: 24px;
+  background: #fff;
+  border-radius: 6px;
+  margin-bottom: 32px;
+  border: 1px solid var(--line);
+}
+
+.p-stat {
+  flex: 1;
+}
+
+.p-stat-val {
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 4px;
+  color: var(--ink);
+}
+
+.p-stat-key {
+  font-size: 11px;
+  color: var(--mid);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.parcours-map-col {
+  background: #dde8ed;
+  min-height: 480px;
+  position: relative;
+}
+
+.map-container {
+  height: 100%;
+  min-height: 480px;
+}
+
+@media (max-width: 900px) {
+  .parcours-content.active {
+    grid-template-columns: 1fr;
+  }
+  .parcours-info {
+    padding: 32px 20px;
+  }
+}

@@ -1,0 +1,130 @@
+<section id="parcours">
+  <div class="container">
+    <div class="parcours-header">
+      <div class="section-label">Les parcours</div>
+      <h2 class="section-title">3 disciplines,<br />un lac, un sommet</h2>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="disciplines-tabs">
+      <div
+        class="disc-tab"
+        [class.active]="activeDiscipline() === 'swim'"
+        (click)="switchDiscipline('swim')"
+      >
+        <span class="dot dot-swim"></span> Natation
+      </div>
+      <div
+        class="disc-tab"
+        [class.active]="activeDiscipline() === 'bike'"
+        (click)="switchDiscipline('bike')"
+      >
+        <span class="dot dot-bike"></span> Vélo
+      </div>
+      <div
+        class="disc-tab"
+        [class.active]="activeDiscipline() === 'run'"
+        (click)="switchDiscipline('run')"
+      >
+        <span class="dot dot-run"></span> Course à pied
+      </div>
+    </div>
+  </div>
+
+  <!-- NATATION -->
+  <div class="parcours-content" [class.active]="activeDiscipline() === 'swim'">
+    <div class="parcours-info">
+      <div class="parcours-discipline-name swim-color">🏊 Natation</div>
+      <div class="parcours-title">Eau libre<br />dans le Bourget</div>
+      <div class="parcours-dist swim-color">2 km</div>
+      <div class="parcours-desc">
+        La natation se déroule en eau libre dans le lac du Bourget, le plus grand lac naturel de
+        France. Les athlètes s'élancent depuis la plage du Grand Port d'Aix-les-Bains pour une
+        boucle dans les eaux fraîches et cristallines de ce lac glaciaire.
+      </div>
+      <div class="parcours-stats">
+        <div class="p-stat">
+          <div class="p-stat-val swim-color">2 km</div>
+          <div class="p-stat-key">Distance</div>
+        </div>
+        <div class="p-stat">
+          <div class="p-stat-val">~18°C</div>
+          <div class="p-stat-key">Temp. eau (juin)</div>
+        </div>
+        <div class="p-stat">
+          <div class="p-stat-val">1 boucle</div>
+          <div class="p-stat-key">Format</div>
+        </div>
+      </div>
+      <span class="pill pill-swim">Eau libre · combinaison optionnelle</span>
+    </div>
+    <div class="parcours-map-col">
+      <div id="map-swim" class="map-container"></div>
+    </div>
+  </div>
+
+  <!-- VÉLO -->
+  <div class="parcours-content" [class.active]="activeDiscipline() === 'bike'">
+    <div class="parcours-info">
+      <div class="parcours-discipline-name bike-color">🚴 Vélo</div>
+      <div class="parcours-title">Tour du lac<br />et des Bauges</div>
+      <div class="parcours-dist bike-color">100 km</div>
+      <div class="parcours-desc">
+        Le parcours cycliste longe le lac du Bourget avant de s'enfoncer dans le massif des Bauges.
+        Un tracé technique avec de belles montées, des descentes techniques et des vues imprenables
+        sur les Alpes. Le dénivelé significatif récompense les grimpeurs.
+      </div>
+      <div class="parcours-stats">
+        <div class="p-stat">
+          <div class="p-stat-val bike-color">100 km</div>
+          <div class="p-stat-key">Distance</div>
+        </div>
+        <div class="p-stat">
+          <div class="p-stat-val">2 000m</div>
+          <div class="p-stat-key">Dénivelé +</div>
+        </div>
+        <div class="p-stat">
+          <div class="p-stat-val">2 tours</div>
+          <div class="p-stat-key">Format</div>
+        </div>
+      </div>
+      <span class="pill pill-bike">Vélo de route · roues à disque interdites</span>
+    </div>
+    <div class="parcours-map-col">
+      <div id="map-bike" class="map-container"></div>
+    </div>
+  </div>
+
+  <!-- COURSE À PIED -->
+  <div class="parcours-content" [class.active]="activeDiscipline() === 'run'">
+    <div class="parcours-info">
+      <div class="parcours-discipline-name run-color">🏃 Course à pied</div>
+      <div class="parcours-title">Montée du<br />Revard</div>
+      <div class="parcours-dist run-color">13 km</div>
+      <div class="parcours-desc">
+        La course à pied est la montée mythique du Mont Revard, 1 200m de dénivelé positif depuis
+        les rives du lac jusqu'au sommet à 1 562m d'altitude. Une arrivée en altitude avec une vue
+        panoramique exceptionnelle sur le lac du Bourget et les Alpes.
+      </div>
+      <div class="parcours-stats">
+        <div class="p-stat">
+          <div class="p-stat-val run-color">13 km</div>
+          <div class="p-stat-key">Distance</div>
+        </div>
+        <div class="p-stat">
+          <div class="p-stat-val">1 200m</div>
+          <div class="p-stat-key">Dénivelé +</div>
+        </div>
+        <div class="p-stat">
+          <div class="p-stat-val">1 562m</div>
+          <div class="p-stat-key">Alt. arrivée</div>
+        </div>
+      </div>
+      <span class="pill pill-run">Trail / route · arrivée en altitude</span>
+    </div>
+    <div class="parcours-map-col">
+      <div id="map-run" class="map-container"></div>
+    </div>
+  </div>
+</section>

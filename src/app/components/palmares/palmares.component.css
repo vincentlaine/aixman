@@ -1,0 +1,26 @@
+#palmares {
+  padding: 100px 0;
+  background: var(--warm);
+}
+
+.palmares-note {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 48px;
+  text-align: center;
+  margin-top: 48px;
+}
+
+.palmares-note p {
+  font-size: 16px;
+  color: var(--mid);
+  max-width: 500px;
+  margin: 0 auto 24px;
+  line-height: 1.7;
+}
+
+.palmares-icon {
+  font-size: 48px;
+  margin-bottom: 20px;
+}

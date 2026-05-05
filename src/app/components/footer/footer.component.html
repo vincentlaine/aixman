@@ -1,0 +1,56 @@
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">AIXMAN</div>
+        <div class="footer-tagline">
+          Triathlon Distance L · Lac du Bourget · Aix-les-Bains, Savoie · 6 Juin 2026
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="#presentation">L'épreuve</a></li>
+          <li><a href="#parcours">Les parcours</a></li>
+          <li><a href="#inscriptions">Inscriptions</a></li>
+          <li><a href="#palmares">Palmarès</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Pratique</h4>
+        <ul>
+          <li><a href="#infos">Hébergement</a></li>
+          <li><a href="#infos">Comment venir</a></li>
+          <li><a href="#infos">Programme</a></li>
+          <li><a href="#infos">Bénévoles</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:contact@aixman.fr">contact&#64;aixman.fr</a></li>
+          <li><a href="mailto:sponsors@aixman.fr">Sponsoring</a></li>
+          <li><a href="mailto:benevoles@aixman.fr">Bénévolat</a></li>
+          <li><a href="#">Mentions légales</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 AixMan — Tous droits réservés. Photos : Unsplash (Unsplash License)</p>
+      <div class="footer-lang">
+        <button
+          [class.active]="langService.lang() === 'fr'"
+          (click)="langService.set('fr')"
+        >
+          FR
+        </button>
+        <button
+          [class.active]="langService.lang() === 'en'"
+          (click)="langService.set('en')"
+        >
+          EN
+        </button>
+      </div>
+    </div>
+  </div>
+</footer>

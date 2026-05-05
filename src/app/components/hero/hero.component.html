@@ -1,0 +1,53 @@
+<section id="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow">{{ langService.t().eyebrow }}</div>
+    <div class="hero-title">AIX<br />MAN</div>
+    <div class="hero-title-sub">Lac du Bourget</div>
+    <div class="hero-date">
+      <strong>{{ langService.t().date }}</strong> · Aix-les-Bains, Savoie
+    </div>
+
+    <div class="hero-segments">
+      <div class="seg-row">
+        <div class="seg-bar-track">
+          <div class="seg-bar-fill" style="width: 20%; background: var(--swim)"></div>
+        </div>
+        <span class="dot dot-swim"></span>
+        <span>Natation — <strong>2 km</strong> · eau libre</span>
+      </div>
+      <div class="seg-row">
+        <div class="seg-bar-track">
+          <div class="seg-bar-fill" style="width: 70%; background: var(--bike)"></div>
+        </div>
+        <span class="dot dot-bike"></span>
+        <span>Vélo — <strong>100 km</strong> · 2 000m D+</span>
+      </div>
+      <div class="seg-row">
+        <div class="seg-bar-track">
+          <div class="seg-bar-fill" style="width: 45%; background: var(--run)"></div>
+        </div>
+        <span class="dot dot-run"></span>
+        <span>Course — <strong>13 km</strong> · 1 200m D+</span>
+      </div>
+    </div>
+
+    <div class="hero-btns">
+      <a href="#inscriptions" class="btn-primary">{{ langService.t().btnRegister }}</a>
+      <a href="#parcours" class="btn-outline">{{ langService.t().btnCourses }}</a>
+    </div>
+
+    <div class="hero-scroll-hint">
+      <span>Défiler</span>
+      <div class="scroll-arrow"></div>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <img
+      class="hero-img"
+      src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&q=80"
+      alt="Lac alpin au matin"
+    />
+    <div class="hero-img-overlay"></div>
+  </div>
+</section>

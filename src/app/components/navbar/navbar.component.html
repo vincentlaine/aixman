@@ -1,0 +1,17 @@
+<nav [class.scrolled]="scrolled()">
+  <div class="nav-inner">
+    <a href="#hero" class="nav-logo">AIX<span>MAN</span></a>
+    <div class="nav-links">
+      <a href="#presentation">{{ langService.t().navEvent }}</a>
+      <a href="#parcours">{{ langService.t().navCourses }}</a>
+      <a href="#inscriptions">{{ langService.t().navRegister }}</a>
+      <a href="#infos">{{ langService.t().navInfo }}</a>
+      <a href="#palmares">{{ langService.t().navResults }}</a>
+      <a href="#sponsors">Sponsors</a>
+      <a href="#inscriptions" class="nav-cta">{{ langService.t().navCta }}</a>
+    </div>
+    <button class="nav-lang" (click)="langService.toggle()">
+      {{ langService.t().langToggle }}
+    </button>
+  </div>
+</nav>
