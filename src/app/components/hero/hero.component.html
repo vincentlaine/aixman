@@ -1,33 +1,36 @@
 <section id="hero">
+  <!-- Topographic wave overlay -->
+  <svg class="hero-topo" aria-hidden="true" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice">
+    <g stroke="#3F8A6E" stroke-width="0.7" fill="none" opacity="0.4">
+      <path d="M-50,80 Q150,55 300,90 Q450,125 600,80 Q720,50 850,85"/>
+      <path d="M-50,160 Q130,135 280,170 Q460,205 620,155 Q730,125 850,165"/>
+      <path d="M-50,240 Q160,215 320,255 Q500,290 660,240 Q750,210 850,245"/>
+      <path d="M-50,320 Q140,295 310,335 Q490,370 640,320 Q745,290 850,325"/>
+      <path d="M-50,400 Q170,375 340,415 Q510,450 670,395 Q760,365 850,405"/>
+      <path d="M-50,480 Q155,455 325,495 Q495,530 660,475 Q755,445 850,485"/>
+      <path d="M-50,560 Q165,535 340,575 Q510,610 670,550 Q765,520 850,560"/>
+    </g>
+  </svg>
+
   <div class="hero-left">
     <div class="hero-eyebrow">{{ langService.t().eyebrow }}</div>
-    <div class="hero-title">AIX<br />MAN</div>
-    <div class="hero-title-sub">Lac du Bourget</div>
-    <div class="hero-date">
-      <strong>{{ langService.t().date }}</strong> · Aix-les-Bains, Savoie
-    </div>
+    <h1 class="hero-title">AIX<br /><em>MAN</em></h1>
+    <div class="hero-subtitle">{{ langService.t().date }} · Aix-les-Bains, Savoie</div>
 
-    <div class="hero-segments">
-      <div class="seg-row">
-        <div class="seg-bar-track">
-          <div class="seg-bar-fill" style="width: 20%; background: var(--swim)"></div>
-        </div>
-        <span class="dot dot-swim"></span>
-        <span>Natation — <strong>2 km</strong> · eau libre</span>
+    <div class="hero-distances">
+      <div class="hero-dist">
+        <div class="dist-num swim-color">2<span class="dist-unit">km</span></div>
+        <div class="dist-label">Natation</div>
       </div>
-      <div class="seg-row">
-        <div class="seg-bar-track">
-          <div class="seg-bar-fill" style="width: 70%; background: var(--bike)"></div>
-        </div>
-        <span class="dot dot-bike"></span>
-        <span>Vélo — <strong>100 km</strong> · 2 000m D+</span>
+      <div class="hero-dist-sep"></div>
+      <div class="hero-dist">
+        <div class="dist-num bike-color">100<span class="dist-unit">km</span></div>
+        <div class="dist-label">Vélo · 2 000m D+</div>
       </div>
-      <div class="seg-row">
-        <div class="seg-bar-track">
-          <div class="seg-bar-fill" style="width: 45%; background: var(--run)"></div>
-        </div>
-        <span class="dot dot-run"></span>
-        <span>Course — <strong>13 km</strong> · 1 200m D+</span>
+      <div class="hero-dist-sep"></div>
+      <div class="hero-dist">
+        <div class="dist-num run-color">13<span class="dist-unit">km</span></div>
+        <div class="dist-label">Course · 1 200m D+</div>
       </div>
     </div>
 
@@ -35,20 +38,30 @@
       <a href="#inscriptions" class="btn-primary">{{ langService.t().btnRegister }}</a>
       <a href="#parcours" class="btn-outline">{{ langService.t().btnCourses }}</a>
     </div>
-
-    <div class="hero-scroll-hint">
-      <span>Défiler</span>
-      <div class="scroll-arrow"></div>
-    </div>
   </div>
 
   <div class="hero-right">
-    <!-- Lac du Bourget depuis la Chambotte · Florian Pépellin · CC BY-SA 4.0 · Wikimedia Commons -->
-    <img
-      class="hero-img"
-      src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Lac_du_Bourget_depuis_la_Chambotte_c%C3%B4t%C3%A9_nord_au_matin_%28%C3%A9t%C3%A9_2020%29.JPG/1280px-Lac_du_Bourget_depuis_la_Chambotte_c%C3%B4t%C3%A9_nord_au_matin_%28%C3%A9t%C3%A9_2020%29.JPG"
-      alt="Lac du Bourget depuis la Chambotte, Savoie"
-    />
-    <div class="hero-img-overlay"></div>
+    <div class="hero-orbit-wrap">
+      <!-- Rotating dashed orbit rings -->
+      <svg class="orbit-svg" viewBox="0 0 480 480" aria-hidden="true">
+        <circle cx="240" cy="240" r="210" class="orbit-ring" />
+        <circle cx="240" cy="240" r="170" class="orbit-ring orbit-ring-2" />
+        <circle cx="240" cy="240" r="130" class="orbit-ring orbit-ring-3" />
+      </svg>
+
+      <!-- Circular photo frame -->
+      <div class="hero-photo">
+        <!-- Lac du Bourget depuis la Chambotte · Florian Pépellin · CC BY-SA 4.0 · Wikimedia Commons -->
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Lac_du_Bourget_depuis_la_Chambotte_c%C3%B4t%C3%A9_nord_au_matin_%28%C3%A9t%C3%A9_2020%29.JPG/1280px-Lac_du_Bourget_depuis_la_Chambotte_c%C3%B4t%C3%A9_nord_au_matin_%28%C3%A9t%C3%A9_2020%29.JPG"
+          alt="Lac du Bourget depuis la Chambotte, Savoie"
+        />
+      </div>
+
+      <!-- Discipline badges orbiting around the photo -->
+      <div class="orbit-badge orbit-swim">🏊 2 km</div>
+      <div class="orbit-badge orbit-bike">🚴 100 km</div>
+      <div class="orbit-badge orbit-run">🏃 13 km</div>
+    </div>
   </div>
 </section>

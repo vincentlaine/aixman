@@ -1,6 +1,6 @@
 #sponsors {
   padding: 80px 0;
-  background: var(--white);
+  background: var(--paper);
   border-top: 1px solid var(--line);
 }
 
@@ -18,15 +18,19 @@
 }
 
 .sponsors-title {
-  font-size: 32px;
+  font-family: 'Fraunces', serif;
+  font-size: 34px;
+  font-weight: 700;
   text-align: center;
+  color: var(--forest);
 }
 
 .sponsors-header p {
+  font-family: 'Inter', sans-serif;
   font-size: 15px;
-  color: var(--mid);
+  color: var(--slate);
   max-width: 460px;
-  margin: 0 auto;
+  margin: 12px auto 0;
 }
 
 .sponsors-grid {
@@ -34,7 +38,7 @@
   flex-wrap: wrap;
   gap: 0;
   border: 1px solid var(--line);
-  border-radius: 4px;
+  border-radius: 8px;
   overflow: hidden;
 }
 
@@ -51,15 +55,16 @@
 }
 
 .sponsor-slot:hover {
-  background: var(--warm);
+  background: var(--cream);
 }
 
 .sponsor-placeholder {
+  font-family: 'Inter', sans-serif;
   font-size: 12px;
   font-weight: 600;
   letter-spacing: 1px;
   text-transform: uppercase;
-  color: #ccc8c0;
+  color: var(--line);
 }
 
 .sponsor-cta {
@@ -68,7 +73,8 @@
 }
 
 .sponsor-cta p {
+  font-family: 'Inter', sans-serif;
   font-size: 14px;
-  color: var(--mid);
+  color: var(--slate);
   margin-bottom: 14px;
 }

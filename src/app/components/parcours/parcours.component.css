@@ -1,42 +1,53 @@
 #parcours {
-  background: var(--warm);
+  background: var(--cream);
   padding: 100px 0 0;
 }
 
 .parcours-header {
-  margin-bottom: 56px;
+  margin-bottom: 52px;
 }
 
+/* Pill-style tabs */
 .disciplines-tabs {
   display: flex;
-  gap: 0;
-  border-bottom: 2px solid var(--line);
-  margin-bottom: 0;
+  gap: 8px;
+  padding-bottom: 40px;
 }
 
 .disc-tab {
-  padding: 14px 28px;
+  padding: 11px 24px;
   cursor: pointer;
+  font-family: 'Inter', sans-serif;
   font-size: 13px;
   font-weight: 600;
-  color: var(--mid);
-  border-bottom: 2px solid transparent;
-  margin-bottom: -2px;
+  color: var(--slate);
+  border-radius: 24px;
+  background: rgba(30, 58, 46, 0.06);
+  border: 1.5px solid transparent;
   transition: all 0.2s;
   display: flex;
   align-items: center;
   gap: 8px;
 }
 
-.disc-tab.active {
-  color: var(--ink);
-  border-bottom-color: var(--ink);
-}
-
 .disc-tab:hover:not(.active) {
-  color: var(--ink);
+  background: rgba(30, 58, 46, 0.1);
+  color: var(--forest);
 }
 
+.disc-tab.active {
+  background: var(--forest);
+  color: #fff;
+  border-color: var(--forest);
+}
+
+.disc-tab.active .dot-swim,
+.disc-tab.active .dot-bike,
+.disc-tab.active .dot-run {
+  background: rgba(255, 255, 255, 0.6);
+}
+
+/* Content panels */
 .parcours-content {
   display: none;
   grid-template-columns: 1fr 1fr;
@@ -47,105 +58,116 @@
 }
 
 .parcours-info {
-  padding: 56px 56px 56px 40px;
+  padding: 56px 56px 64px 0;
   display: flex;
   flex-direction: column;
   gap: 0;
 }
 
 .parcours-discipline-name {
+  font-family: 'Inter', sans-serif;
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 3px;
   text-transform: uppercase;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 
-.swim-color {
-  color: var(--swim);
-}
-.bike-color {
-  color: var(--bike);
-}
-.run-color {
-  color: var(--run);
-}
+.swim-color { color: var(--swim); }
+.bike-color { color: var(--clay); }
+.run-color  { color: var(--sage-dark); }
 
 .parcours-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 38px;
+  font-family: 'Fraunces', serif;
+  font-size: 40px;
   font-weight: 700;
-  line-height: 1.1;
-  margin-bottom: 8px;
-  color: var(--ink);
+  font-style: italic;
+  line-height: 1.05;
+  margin-bottom: 10px;
+  color: var(--forest);
 }
 
 .parcours-dist {
-  font-size: 48px;
+  font-family: 'Fraunces', serif;
+  font-size: clamp(64px, 8vw, 96px);
   font-weight: 700;
-  line-height: 1;
+  line-height: 0.9;
   margin-bottom: 24px;
+  letter-spacing: -2px;
 }
 
 .parcours-desc {
+  font-family: 'Inter', sans-serif;
   font-size: 15px;
-  line-height: 1.75;
-  color: var(--mid);
+  line-height: 1.8;
+  color: var(--slate);
   margin-bottom: 32px;
 }
 
 .parcours-stats {
   display: flex;
-  gap: 32px;
+  gap: 0;
   padding: 24px;
-  background: #fff;
-  border-radius: 6px;
-  margin-bottom: 32px;
+  background: var(--paper);
+  border-radius: 8px;
+  margin-bottom: 28px;
   border: 1px solid var(--line);
 }
 
 .p-stat {
   flex: 1;
+  border-right: 1px solid var(--line);
+  padding-right: 20px;
+  margin-right: 20px;
+}
+
+.p-stat:last-child {
+  border-right: none;
+  padding-right: 0;
+  margin-right: 0;
 }
 
 .p-stat-val {
-  font-size: 22px;
+  font-family: 'Fraunces', serif;
+  font-size: 24px;
   font-weight: 700;
   line-height: 1;
-  margin-bottom: 4px;
-  color: var(--ink);
+  margin-bottom: 5px;
+  color: var(--forest);
 }
 
 .p-stat-key {
+  font-family: 'Inter', sans-serif;
   font-size: 11px;
-  color: var(--mid);
+  color: var(--slate);
   text-transform: uppercase;
   letter-spacing: 1px;
 }
 
 .parcours-map-col {
-  background: #dde8ed;
-  min-height: 480px;
+  background: #d8e5de;
   position: relative;
 }
 
 .map-container {
   height: 100%;
-  min-height: 480px;
+  min-height: 520px;
 }
 
 @media (max-width: 900px) {
   #parcours {
-    padding: 60px 0 0;
+    padding: 72px 0 0;
   }
 
   .disciplines-tabs {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
+    padding-bottom: 32px;
+    gap: 6px;
   }
 
   .disc-tab {
-    padding: 12px 18px;
+    padding: 10px 18px;
     font-size: 12px;
     white-space: nowrap;
   }
@@ -159,29 +181,29 @@
   }
 
   .parcours-title {
-    font-size: 28px;
+    font-size: 30px;
   }
 
   .parcours-dist {
-    font-size: 38px;
+    font-size: 56px;
   }
 
   .parcours-map-col {
-    min-height: 320px;
+    min-height: 340px;
   }
 
   .map-container {
-    min-height: 320px;
+    min-height: 340px;
   }
 }
 
 @media (max-width: 480px) {
   .parcours-stats {
-    gap: 16px;
+    gap: 0;
     padding: 16px;
   }
 
   .p-stat-val {
-    font-size: 18px;
+    font-size: 20px;
   }
 }

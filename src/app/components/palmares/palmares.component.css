@@ -1,26 +1,29 @@
 #palmares {
   padding: 100px 0;
-  background: var(--warm);
+  background: var(--cream);
 }
 
 .palmares-note {
-  background: var(--white);
+  background: var(--paper);
   border: 1px solid var(--line);
-  border-radius: 8px;
-  padding: 48px;
+  border-radius: 10px;
+  padding: 56px;
   text-align: center;
   margin-top: 48px;
 }
 
 .palmares-note p {
+  font-family: 'Inter', sans-serif;
   font-size: 16px;
-  color: var(--mid);
+  color: var(--slate);
   max-width: 500px;
   margin: 0 auto 24px;
-  line-height: 1.7;
+  line-height: 1.75;
 }
 
 .palmares-icon {
-  font-size: 48px;
-  margin-bottom: 20px;
+  font-size: 52px;
+  margin-bottom: 24px;
+  display: block;
+  animation: gentle-bob 5s ease-in-out infinite;
 }

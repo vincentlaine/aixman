@@ -1,6 +1,6 @@
 #presentation {
   padding: 100px 0;
-  background: var(--white);
+  background: var(--paper);
 }
 
 .pres-grid {
@@ -11,14 +11,16 @@
 }
 
 .pres-text p {
+  font-family: 'Inter', sans-serif;
   font-size: 16px;
-  line-height: 1.75;
-  color: var(--mid);
+  line-height: 1.8;
+  color: var(--slate);
   margin-bottom: 20px;
 }
 
 .pres-text p strong {
-  color: var(--ink);
+  color: var(--forest);
+  font-weight: 600;
 }
 
 .pres-img-stack {
@@ -35,7 +37,7 @@
   width: calc(100% - 40px);
   height: calc(100% - 40px);
   object-fit: cover;
-  border-radius: 4px;
+  border-radius: 6px;
 }
 
 .pres-img-secondary {
@@ -45,53 +47,60 @@
   width: 52%;
   height: 45%;
   object-fit: cover;
-  border-radius: 4px;
-  border: 4px solid var(--white);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+  border-radius: 6px;
+  border: 4px solid var(--paper);
+  box-shadow: 0 8px 32px rgba(30, 58, 46, 0.15);
 }
 
 .pres-badge {
   position: absolute;
   top: 24px;
-  right: 24px;
-  background: var(--blue-dark);
+  right: 52px;
+  background: var(--forest);
   color: #fff;
   padding: 12px 18px;
-  border-radius: 4px;
+  border-radius: 6px;
+  font-family: 'Inter', sans-serif;
   font-size: 11px;
   font-weight: 600;
-  letter-spacing: 1px;
+  letter-spacing: 1.5px;
   text-transform: uppercase;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 20px rgba(30, 58, 46, 0.35);
+  animation: gentle-bob 5s ease-in-out infinite;
 }
 
 .facts-row {
   display: flex;
-  gap: 32px;
-  margin-top: 32px;
+  gap: 36px;
+  margin-top: 36px;
+  padding-top: 32px;
+  border-top: 1px solid var(--line);
 }
 
 .fact {
   display: flex;
   flex-direction: column;
-  gap: 3px;
+  gap: 4px;
 }
 
 .fact-num {
-  font-size: 32px;
+  font-family: 'Fraunces', serif;
+  font-size: 34px;
   font-weight: 700;
-  color: var(--blue);
+  color: var(--sage-dark);
   line-height: 1;
 }
 
 .fact-label {
+  font-family: 'Inter', sans-serif;
   font-size: 12px;
-  color: var(--mid);
+  color: var(--slate);
+  letter-spacing: 0.3px;
 }
 
 @media (max-width: 900px) {
   #presentation {
-    padding: 60px 0;
+    padding: 72px 0;
   }
 
   .pres-grid {
@@ -110,6 +119,6 @@
   }
 
   .fact-num {
-    font-size: 26px;
+    font-size: 28px;
   }
 }
