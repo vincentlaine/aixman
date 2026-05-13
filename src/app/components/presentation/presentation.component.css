@@ -90,10 +90,26 @@
 }
 
 @media (max-width: 900px) {
+  #presentation {
+    padding: 60px 0;
+  }
+
   .pres-grid {
     grid-template-columns: 1fr;
+    gap: 40px;
   }
+
   .pres-img-stack {
-    height: 360px;
+    height: 320px;
+  }
+}
+
+@media (max-width: 480px) {
+  .facts-row {
+    gap: 20px;
+  }
+
+  .fact-num {
+    font-size: 26px;
   }
 }

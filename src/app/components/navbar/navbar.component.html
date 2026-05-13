@@ -1,17 +1,44 @@
 <nav [class.scrolled]="scrolled()">
   <div class="nav-inner">
     <a href="#hero" class="nav-logo">AIX<span>MAN</span></a>
+
     <div class="nav-links">
-      <a href="#presentation">{{ langService.t().navEvent }}</a>
-      <a href="#parcours">{{ langService.t().navCourses }}</a>
-      <a href="#inscriptions">{{ langService.t().navRegister }}</a>
-      <a href="#infos">{{ langService.t().navInfo }}</a>
-      <a href="#palmares">{{ langService.t().navResults }}</a>
-      <a href="#sponsors">Sponsors</a>
-      <a href="#inscriptions" class="nav-cta">{{ langService.t().navCta }}</a>
+      <a href="#presentation" (click)="closeMenu()">{{ langService.t().navEvent }}</a>
+      <a href="#parcours" (click)="closeMenu()">{{ langService.t().navCourses }}</a>
+      <a href="#inscriptions" (click)="closeMenu()">{{ langService.t().navRegister }}</a>
+      <a href="#infos" (click)="closeMenu()">{{ langService.t().navInfo }}</a>
+      <a href="#palmares" (click)="closeMenu()">{{ langService.t().navResults }}</a>
+      <a href="#sponsors" (click)="closeMenu()">Sponsors</a>
+      <a href="#inscriptions" class="nav-cta" (click)="closeMenu()">{{ langService.t().navCta }}</a>
     </div>
-    <button class="nav-lang" (click)="langService.toggle()">
-      {{ langService.t().langToggle }}
-    </button>
+
+    <div class="nav-right">
+      <button class="nav-lang" (click)="langService.toggle()">
+        {{ langService.t().langToggle }}
+      </button>
+      <button
+        class="nav-burger"
+        [class.open]="menuOpen()"
+        (click)="toggleMenu()"
+        aria-label="Menu"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile menu overlay -->
+  <div class="nav-mobile" [class.open]="menuOpen()">
+    <a href="#presentation" (click)="closeMenu()">{{ langService.t().navEvent }}</a>
+    <a href="#parcours" (click)="closeMenu()">{{ langService.t().navCourses }}</a>
+    <a href="#inscriptions" (click)="closeMenu()">{{ langService.t().navRegister }}</a>
+    <a href="#infos" (click)="closeMenu()">{{ langService.t().navInfo }}</a>
+    <a href="#palmares" (click)="closeMenu()">{{ langService.t().navResults }}</a>
+    <a href="#sponsors" (click)="closeMenu()">Sponsors</a>
+    <a href="#inscriptions" class="nav-mobile-cta" (click)="closeMenu()">
+      {{ langService.t().navCta }}
+    </a>
   </div>
 </nav>
