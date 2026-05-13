@@ -1,99 +1,122 @@
 #parcours {
   background: var(--cream);
-  padding: 100px 0 0;
+  padding: 120px 0 0;
+  position: relative;
+  overflow: hidden;
 }
 
+#parcours .topo-bg { opacity: 0.4; }
+
 .parcours-header {
-  margin-bottom: 52px;
+  position: relative;
+  z-index: 1;
+  margin-bottom: 56px;
 }
 
 /* Pill-style tabs */
 .disciplines-tabs {
+  position: relative;
+  z-index: 1;
   display: flex;
   gap: 8px;
-  padding-bottom: 40px;
+  flex-wrap: wrap;
+  margin-bottom: 0;
 }
 
 .disc-tab {
-  padding: 11px 24px;
+  padding: 14px 24px;
   cursor: pointer;
   font-family: 'Inter', sans-serif;
   font-size: 13px;
   font-weight: 600;
   color: var(--slate);
-  border-radius: 24px;
-  background: rgba(30, 58, 46, 0.06);
-  border: 1.5px solid transparent;
+  border-radius: 100px;
+  background: transparent;
+  border: 1.5px solid var(--line);
   transition: all 0.2s;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
 }
 
-.disc-tab:hover:not(.active) {
-  background: rgba(30, 58, 46, 0.1);
-  color: var(--forest);
+.tab-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
 }
+
+.swim-dot { background: var(--swim); }
+.bike-dot { background: var(--bike); }
+.run-dot  { background: var(--run); }
 
 .disc-tab.active {
+  color: var(--cream);
   background: var(--forest);
-  color: #fff;
   border-color: var(--forest);
 }
 
-.disc-tab.active .dot-swim,
-.disc-tab.active .dot-bike,
-.disc-tab.active .dot-run {
-  background: rgba(255, 255, 255, 0.6);
-}
+.disc-tab.active .tab-dot { background: rgba(245, 239, 224, 0.6); }
+.disc-tab:hover:not(.active) { color: var(--forest); border-color: var(--forest); }
 
 /* Content panels */
 .parcours-content {
   display: none;
-  grid-template-columns: 1fr 1fr;
+  padding-top: 48px;
+  padding-bottom: 80px;
 }
 
-.parcours-content.active {
+.parcours-content.active { display: block; }
+
+.parcours-grid {
   display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  align-items: stretch;
+  position: relative;
+  z-index: 1;
 }
 
 .parcours-info {
-  padding: 56px 56px 64px 0;
   display: flex;
   flex-direction: column;
-  gap: 0;
+  padding: 8px 0;
 }
 
-.parcours-discipline-name {
-  font-family: 'Inter', sans-serif;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  margin-bottom: 12px;
+.parcours-num-disp {
+  font-family: 'Fraunces', serif;
+  font-weight: 700;
+  line-height: 0.9;
+  font-size: clamp(80px, 10vw, 130px);
+  color: var(--forest);
+  letter-spacing: -4px;
+  margin-bottom: 4px;
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
 }
 
-.swim-color { color: var(--swim); }
-.bike-color { color: var(--clay); }
-.run-color  { color: var(--sage-dark); }
+.parcours-num-unit {
+  font-family: 'Fraunces', serif;
+  font-weight: 500;
+  font-style: italic;
+  font-size: 32px;
+  color: var(--slate);
+}
 
 .parcours-title {
   font-family: 'Fraunces', serif;
-  font-size: 40px;
-  font-weight: 700;
-  font-style: italic;
-  line-height: 1.05;
-  margin-bottom: 10px;
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 1.1;
+  margin-bottom: 20px;
   color: var(--forest);
 }
 
-.parcours-dist {
-  font-family: 'Fraunces', serif;
-  font-size: clamp(64px, 8vw, 96px);
-  font-weight: 700;
-  line-height: 0.9;
-  margin-bottom: 24px;
-  letter-spacing: -2px;
+.parcours-title em {
+  color: var(--sage-dark);
+  font-style: italic;
+  font-weight: 500;
 }
 
 .parcours-desc {
@@ -101,31 +124,27 @@
   font-size: 15px;
   line-height: 1.8;
   color: var(--slate);
-  margin-bottom: 32px;
+  margin-bottom: 28px;
 }
 
 .parcours-stats {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 0;
   padding: 24px;
   background: var(--paper);
-  border-radius: 8px;
+  border-radius: 14px;
   margin-bottom: 28px;
   border: 1px solid var(--line);
 }
 
 .p-stat {
-  flex: 1;
+  padding: 0 16px;
   border-right: 1px solid var(--line);
-  padding-right: 20px;
-  margin-right: 20px;
 }
 
-.p-stat:last-child {
-  border-right: none;
-  padding-right: 0;
-  margin-right: 0;
-}
+.p-stat:first-child { padding-left: 0; }
+.p-stat:last-child { padding-right: 0; border-right: none; }
 
 .p-stat-val {
   font-family: 'Fraunces', serif;
@@ -141,12 +160,24 @@
   font-size: 11px;
   color: var(--slate);
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 1.5px;
 }
 
-.parcours-map-col {
-  background: #d8e5de;
+.parcours-features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* Map wrapper */
+.parcours-map-wrapper {
   position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  box-shadow: 0 20px 50px rgba(30, 58, 46, 0.1);
+  min-height: 520px;
+  background: #dde8ed;
 }
 
 .map-container {
@@ -154,56 +185,67 @@
   min-height: 520px;
 }
 
-@media (max-width: 900px) {
-  #parcours {
-    padding: 72px 0 0;
-  }
-
-  .disciplines-tabs {
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    padding-bottom: 32px;
-    gap: 6px;
-  }
-
-  .disc-tab {
-    padding: 10px 18px;
-    font-size: 12px;
-    white-space: nowrap;
-  }
-
-  .parcours-content.active {
-    grid-template-columns: 1fr;
-  }
-
-  .parcours-info {
-    padding: 32px 20px;
-  }
-
-  .parcours-title {
-    font-size: 30px;
-  }
-
-  .parcours-dist {
-    font-size: 56px;
-  }
-
-  .parcours-map-col {
-    min-height: 340px;
-  }
-
-  .map-container {
-    min-height: 340px;
-  }
+.map-overlay-label {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: var(--cream);
+  color: var(--forest);
+  padding: 8px 14px;
+  border-radius: 100px;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  z-index: 400;
+  border: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 4px 12px rgba(30, 58, 46, 0.08);
 }
 
-@media (max-width: 480px) {
-  .parcours-stats {
-    gap: 0;
-    padding: 16px;
+.map-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.swim-dot-sm { background: var(--swim); }
+.bike-dot-sm { background: var(--bike); }
+.run-dot-sm  { background: var(--run); }
+
+/* ─── Responsive ─── */
+@media (max-width: 900px) {
+  #parcours { padding: 72px 0 0; }
+
+  .parcours-header { margin-bottom: 32px; }
+
+  .disciplines-tabs { gap: 8px; }
+
+  .disc-tab {
+    padding: 10px 16px;
+    font-size: 12px;
+    flex: 1;
+    min-width: 0;
+    justify-content: center;
   }
 
-  .p-stat-val {
-    font-size: 20px;
-  }
+  .parcours-content { padding-top: 32px; padding-bottom: 56px; }
+
+  .parcours-grid { grid-template-columns: 1fr; gap: 32px; }
+
+  .parcours-num-disp { font-size: 84px; letter-spacing: -2px; }
+  .parcours-num-unit { font-size: 24px; }
+  .parcours-title { font-size: 26px; margin-bottom: 16px; }
+
+  .parcours-stats { padding: 18px; }
+  .p-stat { padding: 0 10px; }
+  .p-stat-val { font-size: 18px; }
+  .p-stat-key { font-size: 9px; letter-spacing: 1px; }
+
+  .parcours-map-wrapper { min-height: 360px; }
+  .map-container { min-height: 360px; }
 }

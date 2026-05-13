@@ -1,89 +1,100 @@
 #inscriptions {
-  padding: 100px 0;
+  padding: 120px 0;
   background: var(--forest);
   position: relative;
   overflow: hidden;
 }
 
-/* Subtle topo ellipses background */
-#inscriptions::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image:
-    radial-gradient(ellipse 800px 400px at 80% 50%, rgba(91, 181, 148, 0.04) 0%, transparent 70%);
-  pointer-events: none;
-}
+#inscriptions .topo-bg { opacity: 0.2; }
 
 .inscriptions-grid {
+  position: relative;
+  z-index: 1;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 80px;
   align-items: center;
-  position: relative;
-  z-index: 1;
 }
 
-.inscriptions-left .section-label {
-  color: rgba(91, 181, 148, 0.6);
+/* Left text */
+.inscriptions-left .eyebrow {
+  color: var(--sage);
 }
 
-.inscriptions-left .section-label::after {
-  background: rgba(91, 181, 148, 0.2);
+.inscriptions-left .eyebrow::before {
+  background: var(--sage);
 }
 
-.inscriptions-left .section-title {
-  color: #fff;
-  font-family: 'Fraunces', serif;
+.inscriptions-left .h-display {
+  color: var(--cream);
+}
+
+.inscriptions-left .h-display em {
+  color: var(--sage);
 }
 
 .inscriptions-left p {
   font-family: 'Inter', sans-serif;
   font-size: 16px;
-  color: rgba(255, 255, 255, 0.6);
-  line-height: 1.8;
-  margin-bottom: 24px;
+  color: rgba(245, 239, 224, 0.7);
+  line-height: 1.75;
+  margin-bottom: 22px;
 }
 
-.format-pills {
+.inscriptions-left p strong {
+  color: var(--cream);
+}
+
+.inscr-types {
   display: flex;
   gap: 10px;
   flex-wrap: wrap;
-  margin-top: 8px;
+  margin-top: 24px;
 }
 
-/* Override pill colors for dark bg */
-.format-pills .pill-swim {
-  background: rgba(43, 158, 212, 0.15);
-  color: #7dd4f4;
+.inscr-types .pill {
+  background: rgba(245, 239, 224, 0.08);
+  color: var(--cream);
+  border-color: rgba(245, 239, 224, 0.2);
 }
 
-.format-pills .pill-bike {
-  background: rgba(196, 132, 92, 0.2);
-  color: #e8ac85;
-}
-
-.format-pills .pill-run {
-  background: rgba(91, 181, 148, 0.15);
-  color: var(--sage);
+.inscr-types .pill .pill-dot {
+  background: var(--sage);
 }
 
 /* Card */
 .inscriptions-card {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(91, 181, 148, 0.2);
-  border-radius: 10px;
+  background: var(--cream);
+  border-radius: 20px;
   padding: 40px;
+  position: relative;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.25);
+}
+
+.insc-card-stamp {
+  position: absolute;
+  top: -28px;
+  right: 32px;
+  background: var(--sage);
+  color: var(--forest);
+  padding: 8px 18px;
+  border-radius: 100px;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  box-shadow: 0 6px 20px rgba(91, 181, 148, 0.4);
 }
 
 .insc-deadline {
   display: flex;
   align-items: center;
-  gap: 10px;
-  background: rgba(91, 181, 148, 0.08);
-  border: 1px solid rgba(91, 181, 148, 0.15);
-  border-radius: 6px;
-  padding: 12px 16px;
+  gap: 12px;
+  background: rgba(91, 181, 148, 0.12);
+  border: 1px solid rgba(91, 181, 148, 0.25);
+  border-radius: 100px;
+  padding: 10px 18px;
   margin-bottom: 28px;
 }
 
@@ -91,7 +102,7 @@
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: var(--sage);
+  background: var(--sage-dark);
   flex-shrink: 0;
   animation: pulse 2s infinite;
 }
@@ -99,93 +110,113 @@
 .insc-deadline-text {
   font-family: 'Inter', sans-serif;
   font-size: 13px;
-  color: rgba(255, 255, 255, 0.7);
+  color: var(--slate);
 }
 
 .insc-deadline-text strong {
-  color: var(--sage);
+  color: var(--forest);
 }
 
+/* Tarifs */
 .insc-tarifs {
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  margin-bottom: 32px;
+  gap: 0;
+  margin-bottom: 28px;
 }
 
 .insc-tarif {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-bottom: 12px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  padding: 16px 0;
+  border-bottom: 1px dashed var(--line);
 }
 
-.insc-tarif:last-child {
-  border-bottom: none;
-  padding-bottom: 0;
+.insc-tarif:last-child { border-bottom: none; }
+.insc-tarif:first-child { padding-top: 0; }
+
+.tarif-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
 
 .tarif-name {
   font-family: 'Inter', sans-serif;
   font-size: 14px;
-  color: rgba(255, 255, 255, 0.65);
+  color: var(--forest);
+  font-weight: 600;
+}
+
+.tarif-cond {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  color: var(--slate);
+  letter-spacing: 0.5px;
 }
 
 .tarif-price {
   font-family: 'Fraunces', serif;
-  font-size: 22px;
+  font-size: 28px;
   font-weight: 700;
-  color: #fff;
+  color: var(--forest);
+  line-height: 1;
 }
 
 .tarif-badge {
+  display: inline-block;
   font-family: 'Inter', sans-serif;
   font-size: 10px;
-  background: rgba(91, 181, 148, 0.2);
-  color: var(--sage);
-  padding: 3px 8px;
-  border-radius: 10px;
-  display: inline-block;
+  background: rgba(63, 138, 110, 0.12);
+  color: var(--sage-dark);
+  padding: 3px 9px;
+  border-radius: 100px;
+  letter-spacing: 1px;
+  font-weight: 600;
   margin-top: 4px;
 }
 
 .btn-inscr {
-  display: block;
-  text-align: center;
-  background: var(--sage);
-  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  background: var(--forest);
+  color: var(--cream);
   padding: 18px;
-  border-radius: 8px;
+  border-radius: 100px;
   font-family: 'Inter', sans-serif;
   font-weight: 700;
   font-size: 15px;
   text-decoration: none;
-  transition: background 0.2s, transform 0.15s, box-shadow 0.15s;
+  text-align: center;
+  transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
 }
 
 .btn-inscr:hover {
   background: var(--sage-dark);
   transform: translateY(-2px);
-  box-shadow: 0 8px 28px rgba(91, 181, 148, 0.3);
+  box-shadow: 0 12px 32px rgba(30, 58, 46, 0.25);
 }
 
 .btn-inscr small {
-  display: block;
-  font-family: 'Inter', sans-serif;
   font-size: 11px;
   font-weight: 400;
   opacity: 0.65;
-  margin-top: 4px;
+  letter-spacing: 0.5px;
 }
 
 @media (max-width: 900px) {
-  #inscriptions {
-    padding: 72px 0;
-  }
+  #inscriptions { padding: 72px 0; }
 
-  .inscriptions-grid {
-    grid-template-columns: 1fr;
-    gap: 48px;
-  }
+  .inscriptions-grid { grid-template-columns: 1fr; gap: 48px; }
+
+  .inscriptions-card { padding: 28px 24px; }
+
+  .insc-card-stamp { top: -22px; right: 20px; padding: 7px 14px; font-size: 10px; }
+
+  .tarif-price { font-size: 22px; }
+  .tarif-name { font-size: 13px; }
+  .tarif-cond { font-size: 10px; }
 }

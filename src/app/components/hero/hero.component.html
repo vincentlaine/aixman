@@ -1,67 +1,100 @@
 <section id="hero">
-  <!-- Topographic wave overlay -->
-  <svg class="hero-topo" aria-hidden="true" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice">
-    <g stroke="#3F8A6E" stroke-width="0.7" fill="none" opacity="0.4">
-      <path d="M-50,80 Q150,55 300,90 Q450,125 600,80 Q720,50 850,85"/>
-      <path d="M-50,160 Q130,135 280,170 Q460,205 620,155 Q730,125 850,165"/>
-      <path d="M-50,240 Q160,215 320,255 Q500,290 660,240 Q750,210 850,245"/>
-      <path d="M-50,320 Q140,295 310,335 Q490,370 640,320 Q745,290 850,325"/>
-      <path d="M-50,400 Q170,375 340,415 Q510,450 670,395 Q760,365 850,405"/>
-      <path d="M-50,480 Q155,455 325,495 Q495,530 660,475 Q755,445 850,485"/>
-      <path d="M-50,560 Q165,535 340,575 Q510,610 670,550 Q765,520 850,560"/>
-    </g>
-  </svg>
-
-  <div class="hero-left">
-    <div class="hero-eyebrow">{{ langService.t().eyebrow }}</div>
-    <h1 class="hero-title">AIX<br /><em>MAN</em></h1>
-    <div class="hero-subtitle">{{ langService.t().date }} · Aix-les-Bains, Savoie</div>
-
-    <div class="hero-distances">
-      <div class="hero-dist">
-        <div class="dist-num swim-color">2<span class="dist-unit">km</span></div>
-        <div class="dist-label">Natation</div>
-      </div>
-      <div class="hero-dist-sep"></div>
-      <div class="hero-dist">
-        <div class="dist-num bike-color">100<span class="dist-unit">km</span></div>
-        <div class="dist-label">Vélo · 2 000m D+</div>
-      </div>
-      <div class="hero-dist-sep"></div>
-      <div class="hero-dist">
-        <div class="dist-num run-color">13<span class="dist-unit">km</span></div>
-        <div class="dist-label">Course · 1 200m D+</div>
-      </div>
-    </div>
-
-    <div class="hero-btns">
-      <a href="#inscriptions" class="btn-primary">{{ langService.t().btnRegister }}</a>
-      <a href="#parcours" class="btn-outline">{{ langService.t().btnCourses }}</a>
-    </div>
+  <!-- Topographic SVG overlay -->
+  <div class="hero-topo">
+    <svg width="100%" height="100%" preserveAspectRatio="xMidYMid slice" viewBox="0 0 1600 1000">
+      <rect width="100%" height="100%" fill="url(#topo-light)" />
+    </svg>
   </div>
 
-  <div class="hero-right">
-    <div class="hero-orbit-wrap">
-      <!-- Rotating dashed orbit rings -->
-      <svg class="orbit-svg" viewBox="0 0 480 480" aria-hidden="true">
-        <circle cx="240" cy="240" r="210" class="orbit-ring" />
-        <circle cx="240" cy="240" r="170" class="orbit-ring orbit-ring-2" />
-        <circle cx="240" cy="240" r="130" class="orbit-ring orbit-ring-3" />
-      </svg>
+  <div class="container">
+    <div class="hero-grid">
+      <!-- Left column: text -->
+      <div class="hero-left">
+        <div class="hero-logo-floating">
+          <img src="assets/logo-aixman.png" alt="AixMan" />
+        </div>
 
-      <!-- Circular photo frame -->
-      <div class="hero-photo">
-        <!-- Lac du Bourget depuis la Chambotte · Florian Pépellin · CC BY-SA 4.0 · Wikimedia Commons -->
-        <img
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Lac_du_Bourget_depuis_la_Chambotte_c%C3%B4t%C3%A9_nord_au_matin_%28%C3%A9t%C3%A9_2020%29.JPG/1280px-Lac_du_Bourget_depuis_la_Chambotte_c%C3%B4t%C3%A9_nord_au_matin_%28%C3%A9t%C3%A9_2020%29.JPG"
-          alt="Lac du Bourget depuis la Chambotte, Savoie"
-        />
+        <div class="eyebrow">{{ langService.t().eyebrow }}</div>
+        <h1 class="hero-title">Aix<em>Man</em></h1>
+        <p class="hero-tagline">Du lac au sommet,<br />une course entre <em>eau, terre &amp; ciel</em>.</p>
+
+        <div class="hero-meta">
+          <div class="hero-meta-item">
+            <div class="hero-meta-label">Date</div>
+            <div class="hero-meta-val">{{ langService.t().date }}</div>
+          </div>
+          <div class="hero-meta-item">
+            <div class="hero-meta-label">Lieu</div>
+            <div class="hero-meta-val">Aix-les-Bains</div>
+          </div>
+          <div class="hero-meta-item">
+            <div class="hero-meta-label">Édition</div>
+            <div class="hero-meta-val">1ère / Inaugurale</div>
+          </div>
+        </div>
+
+        <div class="hero-btns">
+          <a href="#inscriptions" class="btn btn-primary">{{ langService.t().btnRegister }} →</a>
+          <a href="#parcours" class="btn btn-outline">{{ langService.t().btnCourses }}</a>
+        </div>
       </div>
 
-      <!-- Discipline badges orbiting around the photo -->
-      <div class="orbit-badge orbit-swim">🏊 2 km</div>
-      <div class="orbit-badge orbit-bike">🚴 100 km</div>
-      <div class="orbit-badge orbit-run">🏃 13 km</div>
+      <!-- Right column: orbit + circular photo -->
+      <div class="hero-right">
+        <div class="hero-illustration">
+          <!-- Rotating orbit rings with discipline badges -->
+          <svg class="hero-orbit" viewBox="0 0 600 600" aria-hidden="true">
+            <g fill="none" stroke="#3F8A6E" stroke-width="1" opacity="0.35">
+              <circle cx="300" cy="300" r="298" stroke-dasharray="3 8" />
+              <circle cx="300" cy="300" r="270" />
+              <circle cx="300" cy="300" r="240" stroke-dasharray="1 5" />
+            </g>
+            <!-- Discipline badges on orbit -->
+            <g font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#3F8A6E" text-anchor="middle">
+              <g transform="translate(300,18)">
+                <circle r="22" fill="#FAF6EC" stroke="#3F8A6E" stroke-width="1" />
+                <text y="5" font-size="16">🏊</text>
+              </g>
+              <g transform="translate(560,420)">
+                <circle r="22" fill="#FAF6EC" stroke="#3F8A6E" stroke-width="1" />
+                <text y="5" font-size="16">🚴</text>
+              </g>
+              <g transform="translate(40,420)">
+                <circle r="22" fill="#FAF6EC" stroke="#3F8A6E" stroke-width="1" />
+                <text y="5" font-size="16">🏃</text>
+              </g>
+            </g>
+          </svg>
+
+          <!-- Circular photo frame -->
+          <div class="hero-circle-frame">
+            <!-- Lac du Bourget depuis la Chambotte · F. Pépellin · CC BY-SA 4.0 · Wikimedia Commons -->
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Lac_du_Bourget_depuis_la_Chambotte_c%C3%B4t%C3%A9_nord_au_matin_%28%C3%A9t%C3%A9_2020%29.JPG/1280px-Lac_du_Bourget_depuis_la_Chambotte_c%C3%B4t%C3%A9_nord_au_matin_%28%C3%A9t%C3%A9_2020%29.JPG"
+              alt="Lac du Bourget depuis la Chambotte, Savoie"
+            />
+            <div class="hero-circle-overlay"></div>
+          </div>
+
+          <!-- Distances bar floating below photo -->
+          <div class="hero-disciplines">
+            <div class="hd-item">
+              <span class="hd-num">2</span>
+              <span class="hd-lbl">km nage</span>
+            </div>
+            <div class="hd-divider"></div>
+            <div class="hd-item">
+              <span class="hd-num">100</span>
+              <span class="hd-lbl">km vélo</span>
+            </div>
+            <div class="hd-divider"></div>
+            <div class="hd-item">
+              <span class="hd-num">13</span>
+              <span class="hd-lbl">km cap</span>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
