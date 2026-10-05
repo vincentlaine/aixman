@@ -1,496 +1,93 @@
-<!-- ══ NAV ══ -->
-<nav [class.scrolled]="scrolled()">
-  <a class="brand" href="#top">
-    <span>AixMan</span>
-  </a>
-  <div class="nav-r">
-    <div class="nav-l">
-      <a href="#ride" (click)="closeMenu()">Parcours</a>
-      <a href="#infos" (click)="closeMenu()">Infos</a>
-      <a href="#inscriptions" (click)="closeMenu()">Inscriptions</a>
-    </div>
-    <div class="nav-lang">
-      <button [class.on]="lang()==='fr'" (click)="setLang('fr')">FR</button>
-      <button [class.on]="lang()==='en'" (click)="setLang('en')">EN</button>
-    </div>
-    <a class="btn-nav" href="#inscriptions">S'inscrire</a>
-    <button class="burger" [class.open]="menuOpen()" (click)="toggleMenu()" aria-label="Menu">
-      <i></i><i></i>
-    </button>
-  </div>
-</nav>
-
-<div class="menu" [class.open]="menuOpen()">
-  <div class="menu-links">
-    <a href="#ride" (click)="closeMenu()">Parcours</a>
-    <a href="#infos" (click)="closeMenu()">Infos</a>
-    <a href="#inscriptions" (click)="closeMenu()">Inscriptions</a>
-  </div>
-  <a class="btn-menu" href="#inscriptions" (click)="closeMenu()">S'inscrire</a>
+<nav>
+<a class="brand" href="#top"><span>AixMan</span></a>
+<div class="nav-r">
+<div class="nav-l"><a href="#ride" data-en="Course">Parcours</a><a href="#infos" data-en="Info">Infos</a><a href="#inscription" data-en="Entry">Inscriptions</a></div>
+<div class="lang"><button class="on" (click)="setLang('fr')">FR</button><button (click)="setLang('en')">EN</button></div>
+<a class="btn" href="#inscription" data-en="Register">S'inscrire</a>
+<button class="burger" aria-label="Menu" (click)="toggleMenu()"><i></i><i></i></button>
 </div>
-
+</nav>
+<div id="menu" (click)="onMenuClick($event)"><div class="ml"><a class="disp" href="#ride" data-en="Course">Parcours</a><a class="disp" href="#infos" data-en="Info">Infos</a><a class="disp" href="#inscription" data-en="Entry">Inscriptions</a></div><a class="btn" href="#inscription" data-en="Register">S'inscrire</a></div>
 <div id="top"></div>
-
-<!-- ══ HERO SCROLL ══ -->
-<section id="ride">
-  <div class="stick">
-    <!-- SVG Landscape -->
-    <svg id="scene" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-      <defs>
-        <linearGradient id="gSky" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stop-color="#C8B89A"/>
-          <stop offset="55%" stop-color="#E8D9C0"/>
-          <stop offset="100%" stop-color="#F3E7D3"/>
-        </linearGradient>
-        <linearGradient id="gLake" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stop-color="#3558DC"/>
-          <stop offset="100%" stop-color="#1B338F"/>
-        </linearGradient>
-        <radialGradient id="gSun" cx="78%" cy="20%" r="22%">
-          <stop offset="0%" stop-color="#F2B33D" stop-opacity=".7"/>
-          <stop offset="100%" stop-color="#F3E7D3" stop-opacity="0"/>
-        </radialGradient>
-      </defs>
-      <!-- Sky -->
-      <rect width="1600" height="900" fill="url(#gSky)"/>
-      <rect width="1600" height="900" fill="url(#gSun)"/>
-      <!-- Sun -->
-      <circle cx="1260" cy="155" r="52" fill="#F2B33D" opacity=".9"/>
-      <circle cx="1260" cy="155" r="80" fill="#F2B33D" opacity=".12"/>
-      <!-- Far Alps (rosy) -->
-      <polygon points="0,500 80,360 160,430 260,295 360,390 470,265 560,360 680,310 780,390 900,270 1020,375 1140,295 1250,375 1350,325 1460,390 1600,340 1600,570 0,570" fill="#E8C4B0" opacity=".7"/>
-      <!-- Snow caps -->
-      <polygon points="470,265 505,298 520,272 536,298 520,265" fill="white" opacity=".75"/>
-      <polygon points="260,295 294,327 307,302 321,327 307,295" fill="white" opacity=".65"/>
-      <polygon points="900,270 934,303 947,278 961,303 947,270" fill="white" opacity=".7"/>
-      <polygon points="1140,295 1168,323 1178,300 1189,323 1178,295" fill="white" opacity=".6"/>
-      <!-- Mid hills (teal) -->
-      <polygon points="0,570 140,450 240,510 360,445 470,505 590,435 700,490 820,450 930,505 1060,455 1170,515 1300,460 1400,515 1600,480 1600,700 0,700" fill="#1D7A74"/>
-      <polygon points="0,580 140,468 230,530 350,460 460,520 580,450 690,510 810,465 920,520 1050,470 1160,530 1290,475 1395,530 1600,495 1600,700 0,700" fill="#145E59" opacity=".55"/>
-      <!-- Lake -->
-      <ellipse cx="800" cy="720" rx="540" ry="72" fill="url(#gLake)" opacity=".92"/>
-      <ellipse cx="800" cy="716" rx="510" ry="62" fill="#2747C8" opacity=".25"/>
-      <line x1="640" y1="700" x2="700" y2="706" stroke="white" stroke-width="2" stroke-linecap="round" opacity=".3"/>
-      <line x1="830" y1="714" x2="900" y2="717" stroke="white" stroke-width="1.5" stroke-linecap="round" opacity=".25"/>
-      <line x1="740" y1="730" x2="820" y2="733" stroke="white" stroke-width="1.5" stroke-linecap="round" opacity=".2"/>
-      <!-- Foreground dark -->
-      <path d="M0,790 C200,740 420,768 640,752 C840,737 1060,765 1280,752 C1420,744 1520,762 1600,758 L1600,900 L0,900Z" fill="#101828"/>
-      <path d="M0,830 C180,808 380,822 580,815 C780,808 980,828 1180,818 C1380,808 1500,824 1600,819 L1600,900 L0,900Z" fill="#1A2535"/>
-      <!-- Road dashes -->
-      <line x1="800" y1="770" x2="800" y2="900" stroke="#F3E7D3" stroke-width="4" stroke-dasharray="26 20" stroke-linecap="round" opacity=".45"/>
-      <!-- Birds -->
-      <path d="M340,205 C348,200 356,200 364,205" fill="none" stroke="#1E2A44" stroke-width="2" stroke-linecap="round" opacity=".4"/>
-      <path d="M380,192 C388,187 396,187 404,192" fill="none" stroke="#1E2A44" stroke-width="2" stroke-linecap="round" opacity=".35"/>
-      <path d="M318,222 C324,218 330,218 336,222" fill="none" stroke="#1E2A44" stroke-width="2" stroke-linecap="round" opacity=".3"/>
-    </svg>
-
-    <!-- Hero intro overlay -->
-    @if (scene() === 'hero') {
-    <div class="ov ov-hero">
-      <div class="kick">
-        <i></i><span>Triathlon distance L · 2e édition</span>
-      </div>
-      <h1>AixMan<br>2027</h1>
-      <div class="meta-pill">
-        <span><b>Dimanche 6 juin 2027</b></span>
-        <span>Lac du Bourget · Aix-les-Bains</span>
-        <a class="btn-acc" href="#inscriptions">S'inscrire</a>
-      </div>
-    </div>
-    }
-
-    <!-- Scroll hint -->
-    <div class="hint" [style.opacity]="hintVisible() ? '1' : '0'">
-      <span>Défiler</span><i></i>
-    </div>
-
-    <!-- Swim card -->
-    @if (scene() === 'swim') {
-    <div class="ov card">
-      <div class="card-num"><em>01</em><span>Natation</span></div>
-      <h2 class="big-num">2<small>km</small></h2>
-      <p>Une boucle en eau libre dans le lac du Bourget, le plus grand lac naturel de France.</p>
-    </div>
-    }
-
-    <!-- Bike card -->
-    @if (scene() === 'bike') {
-    <div class="ov card">
-      <div class="card-num"><em>02</em><span>Vélo</span></div>
-      <h2 class="big-num">100<small>km</small></h2>
-      <div class="dplus">2 000 m D+</div>
-      <p>Des routes de montagne au-dessus du lac, avec l'eau toujours en contrebas.</p>
-    </div>
-    }
-
-    <!-- Run card -->
-    @if (scene() === 'run') {
-    <div class="ov card">
-      <div class="card-num"><em>03</em><span>Trail</span></div>
-      <h2 class="big-num">13<small>km</small></h2>
-      <div class="dplus">1 200 m D+</div>
-      <p>La montée mythique depuis les rives du lac jusqu'au sommet du Mont Revard, 1 562 m.</p>
-    </div>
-    }
-
-    <!-- Finish overlay -->
-    @if (scene() === 'finish') {
-    <div class="ov ov-finish">
-      <div class="finish-sub">Mont Revard · 1 562 m</div>
-      <h2 class="finish-title">Arrivée</h2>
-      <p>115 km. 3 200 m de dénivelé. Une seule ligne.</p>
-      <a class="btn-acc" href="#inscriptions">Prendre le départ</a>
-    </div>
-    }
-
-    <!-- HUD -->
-    <div class="hud">
-      <div class="hud-bars">
-        <div class="hud-bar">
-          <span>Natation</span>
-          <b><i [style.transform]="'scaleX('+swimPct()+')'"></i></b>
-        </div>
-        <div class="hud-bar">
-          <span>Vélo</span>
-          <b><i [style.transform]="'scaleX('+bikePct()+')'"></i></b>
-        </div>
-        <div class="hud-bar">
-          <span>Trail</span>
-          <b><i [style.transform]="'scaleX('+runPct()+')'"></i></b>
-        </div>
-      </div>
-      <div class="hud-stat"><span>{{hudDisc()}}</span><strong>{{hudKm()}} km</strong></div>
-      <div class="hud-stat hud-alt"><span>Alt.</span><strong>{{hudAlt()}} m</strong></div>
-    </div>
-  </div>
+<section id="ride" data-screen-label="Parcours animé">
+<div class="stick">
+<svg id="scene" preserveAspectRatio="none" aria-hidden="true"></svg>
+<div class="ov" id="ov-hero">
+<div class="kick cond"><i></i><span data-en="Long-distance triathlon · 2nd edition">Triathlon distance L · 2e édition</span></div>
+<h1 class="disp">AixMan<br>2027</h1>
+<div class="meta"><span><b data-en="Sunday 6 June 2027">Dimanche 6 juin 2027</b></span><span data-en="Lake Bourget · Aix-les-Bains">Lac du Bourget · Aix-les-Bains</span><a class="btn" href="#inscription" data-en="Register">S'inscrire</a></div>
+</div>
+<div class="hint cond" id="hint"><span data-en="Scroll">Défiler</span><i></i></div>
+<div class="ov card" id="ov-swim">
+<div class="num cond"><em>01</em><span data-en="Swim">Natation</span></div>
+<h2 class="disp">2<small>km</small></h2>
+<p data-en="One open-water loop in Lake Bourget, France's largest natural lake. Start from Grand Port beach.">Une boucle en eau libre dans le lac du Bourget, le plus grand lac naturel de France. Départ plage du Grand Port.</p>
+</div>
+<div class="ov card" id="ov-bike">
+<div class="num cond"><em>02</em><span data-en="Bike">Vélo</span></div>
+<h2 class="disp">100<small>km</small></h2>
+<div class="dplus">2 000 m D+</div>
+<p data-en="Mountain roads high above the lake, with the water never far below.">Des routes de montagne au-dessus du lac, avec l'eau toujours en contrebas.</p>
+</div>
+<div class="ov card" id="ov-run">
+<div class="num cond"><em>03</em><span data-en="Trail run">Trail</span></div>
+<h2 class="disp">13<small>km</small></h2>
+<div class="dplus">1 200 m D+</div>
+<p data-en="The legendary climb from the lakeshore to the summit of Mont Revard, 1,562 m.">La montée mythique des rives du lac jusqu'au sommet du Mont Revard, 1 562 m.</p>
+</div>
+<div class="ov" id="ov-finish">
+<div class="cond" style="font-size:14px" data-en="Mont Revard · 1,562 m">Mont Revard · 1 562 m</div>
+<h2 class="disp" data-en="Finish">Arrivée</h2>
+<p data-en="115 km. 3,200 m of climbing. One line.">115 km. 3 200 m de dénivelé. Une seule ligne.</p>
+<a class="btn" href="#inscription" data-en="Take the start">Prendre le départ</a>
+</div>
+<div id="hud" class="cond">
+<div class="bars">
+<div class="bar"><span data-en="Swim">Natation</span><b><i></i></b></div>
+<div class="bar"><span data-en="Bike">Vélo</span><b><i></i></b></div>
+<div class="bar"><span>Trail</span><b><i></i></b></div>
+</div>
+<div class="stat"><span id="hud-disc">Natation</span><strong><span id="hud-km">0</span> km</strong></div>
+<div class="stat"><span>Alt.</span><strong><span id="hud-alt">231</span> m</strong></div>
+</div>
+</div>
 </section>
-
-<!-- ══ INFOS ══ -->
-<section id="infos">
-  <div class="deco-circle" aria-hidden="true"></div>
-  <div class="deco-bar" aria-hidden="true"></div>
-  <div class="inner">
-    <div class="lbl"><i></i><span>L'essentiel</span></div>
-    <h2>Un jour,<br>trois sports</h2>
-    <div class="facts">
-      <div class="fact"><span class="fact-key">Date</span><strong>Dim. 6 juin 2027</strong></div>
-      <div class="fact"><span class="fact-key">Départ</span><strong>7h00 · Grand Port, Aix-les-Bains</strong></div>
-      <div class="fact"><span class="fact-key">Arrivée</span><strong>Mont Revard · 1 562 m</strong></div>
-      <div class="fact"><span class="fact-key">Format</span><strong>Solo ou relais de 2 à 3</strong></div>
-    </div>
-    <div class="prog">
-      <div class="day">
-        <h3>Samedi 5 juin</h3>
-        <ul>
-          <li><span>9h–18h</span><div>Retrait des dossards, village course</div></li>
-          <li><span>17h</span><div>Briefing athlètes</div></li>
-        </ul>
-      </div>
-      <div class="day">
-        <h3>Dimanche 6 juin</h3>
-        <ul>
-          <li><span>7h</span><div>Départ natation</div></li>
-          <li><span>16h</span><div>Remise des prix</div></li>
-        </ul>
-      </div>
-    </div>
-  </div>
+<section class="blk" id="infos" data-screen-label="Infos">
+<div class="wrap">
+<div class="lbl cond"><i></i><span data-en="The essentials">L'essentiel</span></div>
+<h2 class="disp" data-en="One day,&lt;br&gt;three disciplines">Un jour,<br>trois sports</h2>
+<div class="facts">
+<div class="fact"><span class="cond">Date</span><strong data-en="Sun. 6 June 2027">Dim. 6 juin 2027</strong></div>
+<div class="fact"><span class="cond" data-en="Start">Départ</span><strong data-en="7:00 · Grand Port, Aix-les-Bains">7h00 · Grand Port, Aix-les-Bains</strong></div>
+<div class="fact"><span class="cond" data-en="Finish">Arrivée</span><strong>Mont Revard · 1 562 m</strong></div>
+<div class="fact"><span class="cond">Format</span><strong data-en="Solo or relay of 2–3">Solo ou relais de 2 à 3</strong></div>
+</div>
+<div class="prog">
+<div class="day"><h3 class="disp" data-en="Saturday 5 June">Samedi 5 juin</h3><ul><li><span>9h–18h</span><div data-en="Bib collection, race village">Retrait des dossards, village</div></li><li><span>17h</span><div data-en="Athlete briefing">Briefing athlètes</div></li></ul></div>
+<div class="day"><h3 class="disp" data-en="Sunday 6 June">Dimanche 6 juin</h3><ul><li><span>7h</span><div data-en="Swim start">Départ natation</div></li><li><span>16h</span><div data-en="Awards ceremony">Remise des prix</div></li></ul></div>
+</div>
+</div>
 </section>
-
-<!-- ══ PARCOURS ══ -->
-<section id="parcours">
-  <div class="inner">
-    <div class="lbl"><i></i><span>Les parcours</span></div>
-    <h2>115 km,<br>3 disciplines</h2>
-    <div class="tabs">
-      <button class="tab" [class.on]="activeTab()==='swim'" (click)="setTab('swim')">
-        <span class="dot dot-swim"></span>01 · Natation
-      </button>
-      <button class="tab" [class.on]="activeTab()==='bike'" (click)="setTab('bike')">
-        <span class="dot dot-bike"></span>02 · Vélo
-      </button>
-      <button class="tab" [class.on]="activeTab()==='run'" (click)="setTab('run')">
-        <span class="dot dot-run"></span>03 · Trail
-      </button>
-    </div>
-
-    <!-- Swim -->
-    <div class="tab-panel" [class.on]="activeTab()==='swim'">
-      <div class="parcours-grid">
-        <div class="parc-info">
-          <div class="parc-num">2<span class="parc-unit">km</span></div>
-          <h3>Natation en <em>eau libre</em></h3>
-          <p>Une boucle dans les eaux calmes du lac du Bourget. Départ plage du Grand Port, Aix-les-Bains.</p>
-          <div class="parc-stats">
-            <div class="ps"><div class="ps-v">2 km</div><div class="ps-k">Distance</div></div>
-            <div class="ps"><div class="ps-v">231 m</div><div class="ps-k">Altitude</div></div>
-            <div class="ps"><div class="ps-v">1 boucle</div><div class="ps-k">Format</div></div>
-          </div>
-          <div class="parc-tags">
-            <span class="tag tag-swim">Eau douce</span>
-            <span class="tag tag-swim">Combinaison autorisée</span>
-            <span class="tag tag-swim">Balisé</span>
-          </div>
-        </div>
-        <div class="parc-map">
-          <div class="map-label">Natation</div>
-          <svg viewBox="0 0 460 340" xmlns="http://www.w3.org/2000/svg">
-            <rect width="460" height="340" fill="#c8dde8"/>
-            <!-- Lake simplified -->
-            <ellipse cx="230" cy="170" rx="200" ry="130" fill="#2747C8" opacity=".7"/>
-            <ellipse cx="230" cy="170" rx="200" ry="130" fill="none" stroke="#1B338F" stroke-width="2"/>
-            <!-- Swim loop -->
-            <ellipse cx="230" cy="200" rx="80" ry="55" fill="none" stroke="#F2B33D" stroke-width="3" stroke-dasharray="6 4"/>
-            <!-- Start marker -->
-            <circle cx="230" cy="255" r="8" fill="#E0603A"/>
-            <text x="230" y="285" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="700" fill="#1E2A44">Grand Port</text>
-            <!-- Wave lines -->
-            <path d="M80,160 C100,155 120,165 140,160 C160,155 180,165 200,160" fill="none" stroke="white" stroke-width="1.5" opacity=".4"/>
-            <path d="M280,175 C300,170 320,180 340,175 C360,170 380,180 400,175" fill="none" stroke="white" stroke-width="1.5" opacity=".35"/>
-          </svg>
-        </div>
-      </div>
-    </div>
-
-    <!-- Bike -->
-    <div class="tab-panel" [class.on]="activeTab()==='bike'">
-      <div class="parcours-grid">
-        <div class="parc-info">
-          <div class="parc-num">100<span class="parc-unit">km</span></div>
-          <h3>Vélo de <em>montagne</em></h3>
-          <p>Un circuit exigeant sur les routes du Massif des Bauges et du Revard avec des vues plongeantes sur le lac.</p>
-          <div class="parc-stats">
-            <div class="ps"><div class="ps-v">100 km</div><div class="ps-k">Distance</div></div>
-            <div class="ps"><div class="ps-v">2 000 m</div><div class="ps-k">D+</div></div>
-            <div class="ps"><div class="ps-v">1 562 m</div><div class="ps-k">Alt. max</div></div>
-          </div>
-          <div class="parc-tags">
-            <span class="tag tag-bike">Route</span>
-            <span class="tag tag-bike">Cols chronométrés</span>
-            <span class="tag tag-bike">Vues sur le lac</span>
-          </div>
-        </div>
-        <div class="parc-map">
-          <div class="map-label">Vélo</div>
-          <svg viewBox="0 0 460 340" xmlns="http://www.w3.org/2000/svg">
-            <rect width="460" height="340" fill="#e8ded0"/>
-            <!-- Mountains silhouette -->
-            <polygon points="0,280 60,200 120,240 180,160 260,210 340,140 420,190 460,170 460,340 0,340" fill="#1D7A74" opacity=".5"/>
-            <!-- Lake bottom -->
-            <ellipse cx="230" cy="310" rx="200" ry="50" fill="#2747C8" opacity=".6"/>
-            <!-- Bike route loop -->
-            <path d="M230,295 C180,280 120,240 100,190 C80,140 100,100 150,90 C200,80 260,90 300,130 C340,170 360,220 340,260 C320,295 275,308 230,295Z" fill="none" stroke="#E0603A" stroke-width="3"/>
-            <!-- Start/finish dot -->
-            <circle cx="230" cy="295" r="7" fill="#E0603A"/>
-            <text x="230" y="330" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="700" fill="#1E2A44">Aix-les-Bains</text>
-            <!-- Summit -->
-            <polygon points="300,100 314,75 328,100" fill="#1E2A44" opacity=".7"/>
-            <text x="314" y="68" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="700" fill="#1E2A44">Revard 1562m</text>
-          </svg>
-        </div>
-      </div>
-    </div>
-
-    <!-- Run -->
-    <div class="tab-panel" [class.on]="activeTab()==='run'">
-      <div class="parcours-grid">
-        <div class="parc-info">
-          <div class="parc-num">13<span class="parc-unit">km</span></div>
-          <h3>Trail : <em>la montée</em></h3>
-          <p>La montée mythique depuis les rives du lac du Bourget jusqu'au sommet du Mont Revard à 1 562 m.</p>
-          <div class="parc-stats">
-            <div class="ps"><div class="ps-v">13 km</div><div class="ps-k">Distance</div></div>
-            <div class="ps"><div class="ps-v">1 200 m</div><div class="ps-k">D+</div></div>
-            <div class="ps"><div class="ps-v">1 562 m</div><div class="ps-k">Arrivée</div></div>
-          </div>
-          <div class="parc-tags">
-            <span class="tag tag-run">Sentiers balisés</span>
-            <span class="tag tag-run">Arrivée au sommet</span>
-            <span class="tag tag-run">Montée unique</span>
-          </div>
-        </div>
-        <div class="parc-map">
-          <div class="map-label">Trail</div>
-          <svg viewBox="0 0 460 340" xmlns="http://www.w3.org/2000/svg">
-            <rect width="460" height="340" fill="#e0ede8"/>
-            <!-- Terrain -->
-            <polygon points="0,340 0,200 100,160 200,180 300,100 400,120 460,80 460,340" fill="#1D7A74" opacity=".35"/>
-            <!-- Lake at bottom -->
-            <ellipse cx="100" cy="310" rx="130" ry="40" fill="#2747C8" opacity=".6"/>
-            <!-- Trail line (single uphill route) -->
-            <path d="M100,295 C120,270 140,250 170,230 C200,210 220,195 250,175 C280,155 310,135 340,110" fill="none" stroke="#1D7A74" stroke-width="4" stroke-linecap="round"/>
-            <!-- Arrows -->
-            <circle cx="100" cy="295" r="7" fill="#E0603A"/>
-            <polygon points="340,100 333,118 348,118" fill="#1D7A74"/>
-            <text x="100" y="328" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="700" fill="#1E2A44">Départ T2</text>
-            <text x="340" y="93" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="700" fill="#1E2A44">Revard 1562m</text>
-            <!-- Elevation marks -->
-            <text x="185" y="230" font-family="sans-serif" font-size="9" fill="#145E59" opacity=".7">900m</text>
-            <text x="290" y="160" font-family="sans-serif" font-size="9" fill="#145E59" opacity=".7">1200m</text>
-          </svg>
-        </div>
-      </div>
-    </div>
-  </div>
+<section class="blk" id="inscription" data-screen-label="Inscriptions">
+<div class="wrap">
+<div class="lbl cond"><i></i><span data-en="Entries 2027">Inscriptions 2027</span></div>
+<h2 class="disp" data-en="Take the&lt;br&gt;start">Prenez le<br>départ</h2>
+<div class="tarifs">
+<div class="tarif hot"><span class="cond" data-en="Until 31 Dec. 2026">Jusqu'au 31 déc. 2026</span><h3>Early bird</h3><div class="price">85€</div></div>
+<div class="tarif"><span class="cond" data-en="Jan. → May 2027">Janv. → mai 2027</span><h3 data-en="Solo">Individuel</h3><div class="price">105€</div></div>
+<div class="tarif"><span class="cond" data-en="Team of 2 or 3">Équipe de 2 ou 3</span><h3 data-en="Relay">Relais</h3><div class="price">120€</div></div>
+</div>
+<div class="insc-cta"><span data-en="Limited places · Licence or medical certificate required">Places limitées · Licence ou certificat médical requis</span><a class="btn" href="#" data-en="Register now">S'inscrire maintenant</a></div>
+</div>
 </section>
-
-<!-- ══ INSCRIPTIONS ══ -->
-<section id="inscriptions">
-  <div class="inner">
-    <div class="lbl lbl-light"><i></i><span>Inscriptions 2027</span></div>
-    <h2 class="h-light">Prenez le<br>départ</h2>
-    <div class="tarifs">
-      <div class="tarif tarif-hot">
-        <span class="tarif-sub">Jusqu'au 31 déc. 2026</span>
-        <h3>Early bird</h3>
-        <div class="tarif-price">85€</div>
-      </div>
-      <div class="tarif">
-        <span class="tarif-sub">Janv. → mai 2027</span>
-        <h3>Individuel</h3>
-        <div class="tarif-price">105€</div>
-      </div>
-      <div class="tarif tarif-acc">
-        <span class="tarif-sub">Équipe de 2 ou 3</span>
-        <h3>Relais</h3>
-        <div class="tarif-price">120€</div>
-      </div>
-    </div>
-    <div class="insc-cta">
-      <span>Places limitées · Licence ou certificat médical requis</span>
-      <a class="btn-insc" href="#">S'inscrire maintenant</a>
-    </div>
-  </div>
-</section>
-
-<!-- ══ INFOS PRATIQUES ══ -->
-<section id="pratiques">
-  <div class="inner">
-    <div class="lbl"><i></i><span>Informations pratiques</span></div>
-    <h2>Tout ce qu'il<br>faut savoir</h2>
-    <div class="cards-grid">
-      <div class="icard">
-        <div class="icard-icon">🏨</div>
-        <div class="icard-title">Hébergement</div>
-        <p>Large offre hôtelière à 5 min de la zone de départ. Camping du Sierroz en bord de lac.</p>
-        <ul>
-          <li>Hôtels en bord de lac</li>
-          <li>Camping du Sierroz</li>
-          <li>Réservez tôt — période chargée</li>
-        </ul>
-      </div>
-      <div class="icard">
-        <div class="icard-icon">🚗</div>
-        <div class="icard-title">Comment venir</div>
-        <p>Aix-les-Bains accessible par A41 (sortie 14) et TGV depuis Paris en 2h.</p>
-        <ul>
-          <li>Parking vélos sécurisé sur site</li>
-          <li>Navettes depuis gare SNCF</li>
-          <li>Aéroport Lyon ou Genève</li>
-        </ul>
-      </div>
-      <div class="icard icard-dark">
-        <div class="icard-icon">🤝</div>
-        <div class="icard-title">Devenir bénévole</div>
-        <p>L'AixMan ne peut pas exister sans ses bénévoles. Rejoignez l'équipe !</p>
-        <ul>
-          <li>Ravitaillement, sécurité, chronométrage</li>
-          <li>Formation assurée avant la course</li>
-          <li>Repas et T-shirt offerts</li>
-        </ul>
-        <a href="mailto:benevoles@aixman.fr" class="btn-vol">Rejoindre l'équipe →</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ══ PALMARES ══ -->
-<section id="palmares">
-  <div class="inner palmares-inner">
-    <div class="lbl"><i></i><span>Palmarès</span></div>
-    <h2>Résultats<br>2027</h2>
-    <div class="trophy">🏆</div>
-    <p class="palmares-txt">L'AixMan 2027 est la 2e édition. Les résultats seront publiés ici après la course.</p>
-    <a class="btn-dark" href="#inscriptions">S'inscrire pour l'édition 2027</a>
-  </div>
-</section>
-
-<!-- ══ SPONSORS ══ -->
-<section id="sponsors">
-  <div class="inner">
-    <div class="sponsors-hd">
-      <div class="lbl"><i></i><span>Partenaires</span></div>
-      <h2>Ils soutiennent<br><span class="acc">l'AixMan</span></h2>
-      <p>Associez votre marque à un événement d'exception en Savoie.</p>
-    </div>
-    <div class="sp-grid">
-      <div class="sp-row">
-        <div class="sp-tier">Titre</div>
-        <div class="sp-slots">
-          <div class="sp-slot sp-big"><span>Titre sponsor</span></div>
-        </div>
-      </div>
-      <div class="sp-row">
-        <div class="sp-tier">Or</div>
-        <div class="sp-slots">
-          <div class="sp-slot"><span>Partenaire Or</span></div>
-          <div class="sp-slot"><span>Partenaire Or</span></div>
-        </div>
-      </div>
-      <div class="sp-row">
-        <div class="sp-tier">Argent</div>
-        <div class="sp-slots">
-          <div class="sp-slot"><span>Argent</span></div>
-          <div class="sp-slot"><span>Argent</span></div>
-          <div class="sp-slot"><span>Argent</span></div>
-        </div>
-      </div>
-      <div class="sp-row">
-        <div class="sp-tier">Bronze</div>
-        <div class="sp-slots">
-          <div class="sp-slot"><span>Bronze</span></div>
-          <div class="sp-slot"><span>Bronze</span></div>
-          <div class="sp-slot"><span>Bronze</span></div>
-          <div class="sp-slot"><span>Bronze</span></div>
-        </div>
-      </div>
-    </div>
-    <div class="sp-cta">
-      <p>Vous souhaitez devenir partenaire ?</p>
-      <a class="btn-dark" href="mailto:sponsors@aixman.fr">Télécharger le dossier</a>
-    </div>
-  </div>
-</section>
-
-<!-- ══ FOOTER ══ -->
-<footer>
-  <div class="ridge-wrap"><div class="ridge"></div></div>
-  <div class="inner foot-inner">
-    <div class="foot">
-      <div class="foot-brand">AixMan</div>
-      <div>
-        <h4>Contact</h4>
-        <ul>
-          <li><a href="mailto:contact@aixman.fr">contact&#64;aixman.fr</a></li>
-          <li>Aix-les-Bains, Savoie</li>
-        </ul>
-      </div>
-      <div>
-        <h4>Suivre</h4>
-        <ul>
-          <li><a href="#">Instagram</a></li>
-          <li><a href="#">Facebook</a></li>
-          <li><a href="#">Strava</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="legal">
-      <span>© 2027 AixMan</span>
-      <span>Triathlon distance L · Lac du Bourget</span>
-      <div class="foot-lang">
-        <button [class.on]="lang()==='fr'" (click)="setLang('fr')">FR</button>
-        <button [class.on]="lang()==='en'" (click)="setLang('en')">EN</button>
-      </div>
-    </div>
-  </div>
+<footer data-screen-label="Footer">
+<div class="ridge-wrap"><div class="ridge"></div></div>
+<div class="wrap">
+<div class="foot">
+<div class="disp big">AixMan</div>
+<div><h4 class="cond">Contact</h4><ul><li><a href="mailto:contact&#64;aixman.fr">contact&#64;aixman.fr</a></li><li>Aix-les-Bains, Savoie</li></ul></div>
+<div><h4 class="cond" data-en="Follow">Suivre</h4><ul><li><a href="#">Instagram</a></li><li><a href="#">Facebook</a></li><li><a href="#">Strava</a></li></ul></div>
+</div>
+<div class="legal"><span>© 2027 AixMan</span><span data-en="Long-distance triathlon · Lake Bourget">Triathlon distance L · Lac du Bourget</span></div>
+</div>
 </footer>
