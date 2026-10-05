@@ -85,7 +85,8 @@
     </svg>
 
     <!-- Hero intro overlay -->
-    <div class="ov ov-hero" [class.vis]="scene()==='hero'">
+    @if (scene() === 'hero') {
+    <div class="ov ov-hero">
       <div class="kick">
         <i></i><span>Triathlon distance L · 2e édition</span>
       </div>
@@ -96,6 +97,7 @@
         <a class="btn-acc" href="#inscriptions">S'inscrire</a>
       </div>
     </div>
+    }
 
     <!-- Scroll hint -->
     <div class="hint" [style.opacity]="hintVisible() ? '1' : '0'">
@@ -103,35 +105,43 @@
     </div>
 
     <!-- Swim card -->
-    <div class="ov card" [class.vis]="scene()==='swim'">
+    @if (scene() === 'swim') {
+    <div class="ov card">
       <div class="card-num"><em>01</em><span>Natation</span></div>
       <h2 class="big-num">2<small>km</small></h2>
       <p>Une boucle en eau libre dans le lac du Bourget, le plus grand lac naturel de France.</p>
     </div>
+    }
 
     <!-- Bike card -->
-    <div class="ov card" [class.vis]="scene()==='bike'">
+    @if (scene() === 'bike') {
+    <div class="ov card">
       <div class="card-num"><em>02</em><span>Vélo</span></div>
       <h2 class="big-num">100<small>km</small></h2>
       <div class="dplus">2 000 m D+</div>
       <p>Des routes de montagne au-dessus du lac, avec l'eau toujours en contrebas.</p>
     </div>
+    }
 
     <!-- Run card -->
-    <div class="ov card" [class.vis]="scene()==='run'">
+    @if (scene() === 'run') {
+    <div class="ov card">
       <div class="card-num"><em>03</em><span>Trail</span></div>
       <h2 class="big-num">13<small>km</small></h2>
       <div class="dplus">1 200 m D+</div>
       <p>La montée mythique depuis les rives du lac jusqu'au sommet du Mont Revard, 1 562 m.</p>
     </div>
+    }
 
     <!-- Finish overlay -->
-    <div class="ov ov-finish" [class.vis]="scene()==='finish'">
+    @if (scene() === 'finish') {
+    <div class="ov ov-finish">
       <div class="finish-sub">Mont Revard · 1 562 m</div>
       <h2 class="finish-title">Arrivée</h2>
       <p>115 km. 3 200 m de dénivelé. Une seule ligne.</p>
       <a class="btn-acc" href="#inscriptions">Prendre le départ</a>
     </div>
+    }
 
     <!-- HUD -->
     <div class="hud">

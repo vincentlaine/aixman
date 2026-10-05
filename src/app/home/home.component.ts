@@ -1,4 +1,4 @@
-import { Component, HostListener, signal } from '@angular/core';
+import { Component, HostListener, OnInit, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 type Scene = 'hero' | 'swim' | 'bike' | 'run' | 'finish';
@@ -12,7 +12,7 @@ type Lang = 'fr' | 'en';
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
   lang = signal<Lang>('fr');
   menuOpen = signal(false);
   scrolled = signal(false);
@@ -29,6 +29,8 @@ export class HomeComponent {
 
   // Parcours tabs
   activeTab = signal<Discipline>('swim');
+
+  ngOnInit() { this.onScroll(); }
 
   setLang(l: Lang) { this.lang.set(l); }
   toggleMenu() { this.menuOpen.update(v => !v); }

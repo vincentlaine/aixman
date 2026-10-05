@@ -205,12 +205,13 @@ nav.scrolled { box-shadow: 0 2px 16px rgba(30,42,68,.1); }
 }
 
 .ov {
-  position: absolute; z-index: 5; pointer-events: none;
-  transition: opacity .5s, transform .5s;
-  opacity: 0; transform: translateY(14px);
+  position: absolute; z-index: 5;
+  animation: ov-in .45s cubic-bezier(.25,.8,.25,1) both;
 }
-.ov.vis { opacity: 1; transform: translateY(0); pointer-events: auto; }
-.ov .btn-acc { pointer-events: auto; }
+@keyframes ov-in {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
 
 .ov-hero {
   left: var(--pad); right: var(--pad);
