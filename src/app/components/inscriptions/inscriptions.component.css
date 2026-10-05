@@ -1,222 +1,125 @@
 #inscriptions {
-  padding: 120px 0;
-  background: var(--forest);
+  background: var(--lake);
+  color: var(--cream);
+  position: relative;
+  padding: clamp(72px, 10vw, 140px) clamp(16px, 4vw, 48px);
+  overflow: hidden;
+}
+
+/* Dot-pattern background */
+#inscriptions::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle at 10px 10px, color-mix(in oklab, var(--cream) 18%, transparent) 3px, transparent 3.5px);
+  background-size: 28px 28px;
+  pointer-events: none;
+}
+
+#inscriptions .wrap {
+  position: relative;
+  z-index: 1;
+}
+
+#inscriptions .lbl i { background: var(--cream); }
+#inscriptions .lbl { color: var(--cream); }
+
+#inscriptions h2.disp {
+  color: var(--cream);
+  font-size: clamp(48px, 8vw, 128px);
+  margin-bottom: clamp(40px, 6vw, 72px);
+}
+
+.tarifs {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.tarif {
+  background: var(--cream);
+  color: var(--main);
+  padding: 72px 28px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border-radius: 400px 400px 18px 18px;
+  text-align: center;
+  align-items: center;
   position: relative;
   overflow: hidden;
 }
 
-#inscriptions .topo-bg { opacity: 0.2; }
-
-.inscriptions-grid {
-  position: relative;
-  z-index: 1;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
-  align-items: center;
-}
-
-/* Left text */
-.inscriptions-left .eyebrow {
-  color: var(--sage);
-}
-
-.inscriptions-left .eyebrow::before {
-  background: var(--sage);
-}
-
-.inscriptions-left .h-display {
-  color: var(--cream);
-}
-
-.inscriptions-left .h-display em {
-  color: var(--sage);
-}
-
-.inscriptions-left p {
-  font-family: 'Inter', sans-serif;
-  font-size: 16px;
-  color: rgba(245, 239, 224, 0.7);
-  line-height: 1.75;
-  margin-bottom: 22px;
-}
-
-.inscriptions-left p strong {
-  color: var(--cream);
-}
-
-.inscr-types {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-  margin-top: 24px;
-}
-
-.inscr-types .pill {
-  background: rgba(245, 239, 224, 0.08);
-  color: var(--cream);
-  border-color: rgba(245, 239, 224, 0.2);
-}
-
-.inscr-types .pill .pill-dot {
-  background: var(--sage);
-}
-
-/* Card */
-.inscriptions-card {
-  background: var(--cream);
-  border-radius: 20px;
-  padding: 40px;
-  position: relative;
-  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.25);
-}
-
-.insc-card-stamp {
+/* Stripe detail at top */
+.tarif::before {
+  content: "";
   position: absolute;
-  top: -28px;
-  right: 32px;
-  background: var(--sage);
-  color: var(--forest);
-  padding: 8px 18px;
-  border-radius: 100px;
-  font-family: 'Inter', sans-serif;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  box-shadow: 0 6px 20px rgba(91, 181, 148, 0.4);
+  inset: 14px 14px auto;
+  height: 40px;
+  border-radius: 200px 200px 0 0;
+  background: repeating-linear-gradient(90deg, currentColor 0 6px, transparent 6px 16px);
+  opacity: .18;
 }
 
-.insc-deadline {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  background: rgba(91, 181, 148, 0.12);
-  border: 1px solid rgba(91, 181, 148, 0.25);
-  border-radius: 100px;
-  padding: 10px 18px;
-  margin-bottom: 28px;
-}
-
-.insc-deadline-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--sage-dark);
-  flex-shrink: 0;
-  animation: pulse 2s infinite;
-}
-
-.insc-deadline-text {
-  font-family: 'Inter', sans-serif;
+.tarif .cond {
   font-size: 13px;
-  color: var(--slate);
+  color: inherit;
+  opacity: .75;
 }
 
-.insc-deadline-text strong {
-  color: var(--forest);
+.tarif h3 {
+  font-family: 'League Spartan', sans-serif;
+  font-size: clamp(22px, 2.2vw, 30px);
+  font-weight: 900;
+  text-transform: uppercase;
 }
 
-/* Tarifs */
-.insc-tarifs {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-  margin-bottom: 28px;
-}
-
-.insc-tarif {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 16px 0;
-  border-bottom: 1px dashed var(--line);
-}
-
-.insc-tarif:last-child { border-bottom: none; }
-.insc-tarif:first-child { padding-top: 0; }
-
-.tarif-info {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.tarif-name {
-  font-family: 'Inter', sans-serif;
-  font-size: 14px;
-  color: var(--forest);
-  font-weight: 600;
-}
-
-.tarif-cond {
-  font-family: 'Inter', sans-serif;
-  font-size: 11px;
-  color: var(--slate);
-  letter-spacing: 0.5px;
-}
-
-.tarif-price {
-  font-family: 'Fraunces', serif;
-  font-size: 28px;
-  font-weight: 700;
-  color: var(--forest);
+.tarif .price {
+  font-family: 'League Spartan', sans-serif;
+  font-size: clamp(64px, 7vw, 104px);
+  font-weight: 900;
   line-height: 1;
+  margin-top: auto;
+  padding-top: 28px;
 }
 
-.tarif-badge {
-  display: inline-block;
-  font-family: 'Inter', sans-serif;
-  font-size: 10px;
-  background: rgba(63, 138, 110, 0.12);
-  color: var(--sage-dark);
-  padding: 3px 9px;
-  border-radius: 100px;
-  letter-spacing: 1px;
-  font-weight: 600;
-  margin-top: 4px;
+/* Hot = gold */
+.tarif.hot {
+  background: var(--deco);
+  color: var(--main);
 }
 
-.btn-inscr {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 4px;
-  background: var(--forest);
+/* Last = accent */
+.tarif:nth-child(3) {
+  background: var(--acc);
   color: var(--cream);
-  padding: 18px;
-  border-radius: 100px;
-  font-family: 'Inter', sans-serif;
-  font-weight: 700;
-  font-size: 15px;
-  text-decoration: none;
-  text-align: center;
-  transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
 }
 
-.btn-inscr:hover {
-  background: var(--sage-dark);
-  transform: translateY(-2px);
-  box-shadow: 0 12px 32px rgba(30, 58, 46, 0.25);
+.insc-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 48px;
+  font-size: 18px;
+  font-weight: 600;
 }
 
-.btn-inscr small {
-  font-size: 11px;
-  font-weight: 400;
-  opacity: 0.65;
-  letter-spacing: 0.5px;
+.insc-cta .btn {
+  background: var(--cream);
+  color: var(--lake);
+  min-height: 56px;
+  padding: 0 34px;
+  font-size: 16px;
+}
+.insc-cta .btn:hover {
+  background: var(--acc);
+  color: var(--cream);
 }
 
 @media (max-width: 900px) {
-  #inscriptions { padding: 72px 0; }
-
-  .inscriptions-grid { grid-template-columns: 1fr; gap: 48px; }
-
-  .inscriptions-card { padding: 28px 24px; }
-
-  .insc-card-stamp { top: -22px; right: 20px; padding: 7px 14px; font-size: 10px; }
-
-  .tarif-price { font-size: 22px; }
-  .tarif-name { font-size: 13px; }
-  .tarif-cond { font-size: 10px; }
+  .tarifs { grid-template-columns: minmax(0, 1fr); }
+  .insc-cta .btn { width: 100%; }
+  .insc-cta { flex-direction: column; align-items: flex-start; }
 }

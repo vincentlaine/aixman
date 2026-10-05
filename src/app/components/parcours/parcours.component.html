@@ -1,171 +1,113 @@
-<section id="parcours">
-  <div class="topo-bg">
-    <svg width="100%" height="100%" preserveAspectRatio="xMidYMid slice" viewBox="0 0 1600 1200">
-      <rect width="100%" height="100%" fill="url(#topo-light)" />
-    </svg>
-  </div>
+<section id="parcours" class="blk">
+  <div class="wrap">
+    <div class="lbl cond"><i></i><span>Les parcours</span></div>
+    <h2 class="disp">Natation, vélo,<br>trail</h2>
 
-  <div class="container">
-    <div class="parcours-header">
-      <div class="eyebrow">Les parcours</div>
-      <h2 class="h-display">3 disciplines,<br />un <em>lac, un sommet</em></h2>
-    </div>
     <div class="disciplines-tabs">
-      <div
-        class="disc-tab"
+      <button
+        class="disc-tab cond"
         [class.active]="activeDiscipline() === 'swim'"
         (click)="switchDiscipline('swim')"
       >
-        <span class="tab-dot swim-dot"></span>🏊 Natation · 2 km
-      </div>
-      <div
-        class="disc-tab"
+        <span class="tab-dot swim-dot"></span>01 · Natation · 2 km
+      </button>
+      <button
+        class="disc-tab cond"
         [class.active]="activeDiscipline() === 'bike'"
         (click)="switchDiscipline('bike')"
       >
-        <span class="tab-dot bike-dot"></span>🚴 Vélo · 100 km
-      </div>
-      <div
-        class="disc-tab"
+        <span class="tab-dot bike-dot"></span>02 · Vélo · 100 km
+      </button>
+      <button
+        class="disc-tab cond"
         [class.active]="activeDiscipline() === 'run'"
         (click)="switchDiscipline('run')"
       >
-        <span class="tab-dot run-dot"></span>🏃 Course · 13 km
-      </div>
+        <span class="tab-dot run-dot"></span>03 · Trail · 13 km
+      </button>
     </div>
-  </div>
 
-  <!-- NATATION -->
-  <div class="parcours-content" [class.active]="activeDiscipline() === 'swim'">
-    <div class="container">
+    <!-- ── SWIM ── -->
+    <div class="parcours-content" [class.active]="activeDiscipline() === 'swim'">
       <div class="parcours-grid">
         <div class="parcours-info">
-          <span class="pill pill-swim" style="align-self:flex-start;margin-bottom:18px;">
-            <span class="pill-dot"></span>Natation · Eau libre
-          </span>
           <div class="parcours-num-disp">2<span class="parcours-num-unit">km</span></div>
-          <h3 class="parcours-title">Une boucle dans <em>le Bourget</em></h3>
+          <h3 class="parcours-title">Natation en <em>eau libre</em></h3>
           <p class="parcours-desc">
-            La natation se déroule en eau libre dans le lac du Bourget, le plus grand lac naturel de
-            France. Les athlètes s'élancent depuis la plage du Grand Port d'Aix-les-Bains pour une
-            boucle dans les eaux fraîches et cristallines de ce lac glaciaire.
+            Une boucle dans les eaux calmes du lac du Bourget, le plus grand lac naturel de France.
+            Départ plage du Grand Port à Aix-les-Bains.
           </p>
           <div class="parcours-stats">
-            <div class="p-stat">
-              <div class="p-stat-val">2 km</div>
-              <div class="p-stat-key">Distance</div>
-            </div>
-            <div class="p-stat">
-              <div class="p-stat-val">~18°C</div>
-              <div class="p-stat-key">Temp. eau juin</div>
-            </div>
-            <div class="p-stat">
-              <div class="p-stat-val">1 boucle</div>
-              <div class="p-stat-key">Format</div>
-            </div>
+            <div class="p-stat"><div class="p-stat-val">2 km</div><div class="p-stat-key">Distance</div></div>
+            <div class="p-stat"><div class="p-stat-val">231 m</div><div class="p-stat-key">Altitude</div></div>
+            <div class="p-stat"><div class="p-stat-val">1 boucle</div><div class="p-stat-key">Format</div></div>
           </div>
           <div class="parcours-features">
-            <span class="pill pill-swim"><span class="pill-dot"></span>Combinaison optionnelle</span>
-            <span class="pill pill-swim"><span class="pill-dot"></span>Départ groupé</span>
+            <span class="pill pill-swim"><span class="pill-dot"></span>Eau douce</span>
+            <span class="pill pill-swim"><span class="pill-dot"></span>Balisé</span>
+            <span class="pill pill-swim"><span class="pill-dot"></span>Combinaison autorisée</span>
           </div>
         </div>
         <div class="parcours-map-wrapper">
-          <div class="map-overlay-label">
-            <span class="map-dot swim-dot-sm"></span>Parcours natation
-          </div>
-          <div id="map-swim" class="map-container"></div>
+          <div class="map-container" id="map-swim"></div>
+          <div class="map-overlay-label cond"><span class="map-dot swim-dot-sm"></span>Natation</div>
         </div>
       </div>
     </div>
-  </div>
 
-  <!-- VÉLO -->
-  <div class="parcours-content" [class.active]="activeDiscipline() === 'bike'">
-    <div class="container">
+    <!-- ── BIKE ── -->
+    <div class="parcours-content" [class.active]="activeDiscipline() === 'bike'">
       <div class="parcours-grid">
         <div class="parcours-info">
-          <span class="pill pill-bike" style="align-self:flex-start;margin-bottom:18px;">
-            <span class="pill-dot"></span>Vélo · Route
-          </span>
           <div class="parcours-num-disp">100<span class="parcours-num-unit">km</span></div>
-          <h3 class="parcours-title">Tour du lac &amp; <em>massif des Bauges</em></h3>
+          <h3 class="parcours-title">Vélo de <em>montagne</em></h3>
           <p class="parcours-desc">
-            Le parcours cycliste longe le lac du Bourget avant de s'enfoncer dans le massif des
-            Bauges. Un tracé technique avec de belles montées, des descentes engageantes et des vues
-            imprenables sur les Alpes. Le dénivelé significatif récompense les grimpeurs.
+            Un circuit exigeant sur les routes du Massif des Bauges et du Revard, avec des vues
+            plongeantes sur le lac du Bourget.
           </p>
           <div class="parcours-stats">
-            <div class="p-stat">
-              <div class="p-stat-val">100 km</div>
-              <div class="p-stat-key">Distance</div>
-            </div>
-            <div class="p-stat">
-              <div class="p-stat-val">2 000m</div>
-              <div class="p-stat-key">Dénivelé +</div>
-            </div>
-            <div class="p-stat">
-              <div class="p-stat-val">2 tours</div>
-              <div class="p-stat-key">Format</div>
-            </div>
+            <div class="p-stat"><div class="p-stat-val">100 km</div><div class="p-stat-key">Distance</div></div>
+            <div class="p-stat"><div class="p-stat-val">2 000 m</div><div class="p-stat-key">D+</div></div>
+            <div class="p-stat"><div class="p-stat-val">1 562 m</div><div class="p-stat-key">Alt. max</div></div>
           </div>
           <div class="parcours-features">
-            <span class="pill pill-bike"><span class="pill-dot"></span>Vélo de route uniquement</span>
-            <span class="pill pill-bike"><span class="pill-dot"></span>Roues à disque interdites</span>
-            <span class="pill pill-bike"><span class="pill-dot"></span>Assistance mécanique</span>
+            <span class="pill pill-bike"><span class="pill-dot"></span>Route</span>
+            <span class="pill pill-bike"><span class="pill-dot"></span>Cols chronométrés</span>
           </div>
         </div>
         <div class="parcours-map-wrapper">
-          <div class="map-overlay-label">
-            <span class="map-dot bike-dot-sm"></span>Parcours vélo
-          </div>
-          <div id="map-bike" class="map-container"></div>
+          <div class="map-container" id="map-bike"></div>
+          <div class="map-overlay-label cond"><span class="map-dot bike-dot-sm"></span>Vélo</div>
         </div>
       </div>
     </div>
-  </div>
 
-  <!-- COURSE À PIED -->
-  <div class="parcours-content" [class.active]="activeDiscipline() === 'run'">
-    <div class="container">
+    <!-- ── RUN ── -->
+    <div class="parcours-content" [class.active]="activeDiscipline() === 'run'">
       <div class="parcours-grid">
         <div class="parcours-info">
-          <span class="pill pill-run" style="align-self:flex-start;margin-bottom:18px;">
-            <span class="pill-dot"></span>Course · Trail/route
-          </span>
           <div class="parcours-num-disp">13<span class="parcours-num-unit">km</span></div>
-          <h3 class="parcours-title">La montée mythique <em>du Revard</em></h3>
+          <h3 class="parcours-title">Trail : <em>la montée</em></h3>
           <p class="parcours-desc">
-            La course à pied est la montée mythique du Mont Revard : 1 200m de dénivelé positif
-            depuis les rives du lac jusqu'au sommet à 1 562m d'altitude. Une arrivée en altitude
-            avec une vue panoramique exceptionnelle sur le lac du Bourget et les Alpes.
+            La montée mythique depuis les rives du lac du Bourget jusqu'au sommet du Mont Revard
+            à 1&nbsp;562 m — la ligne d'arrivée au sommet.
           </p>
           <div class="parcours-stats">
-            <div class="p-stat">
-              <div class="p-stat-val">13 km</div>
-              <div class="p-stat-key">Distance</div>
-            </div>
-            <div class="p-stat">
-              <div class="p-stat-val">1 200m</div>
-              <div class="p-stat-key">Dénivelé +</div>
-            </div>
-            <div class="p-stat">
-              <div class="p-stat-val">1 562m</div>
-              <div class="p-stat-key">Alt. arrivée</div>
-            </div>
+            <div class="p-stat"><div class="p-stat-val">13 km</div><div class="p-stat-key">Distance</div></div>
+            <div class="p-stat"><div class="p-stat-val">1 200 m</div><div class="p-stat-key">D+</div></div>
+            <div class="p-stat"><div class="p-stat-val">1 562 m</div><div class="p-stat-key">Arrivée</div></div>
           </div>
           <div class="parcours-features">
-            <span class="pill pill-run"><span class="pill-dot"></span>Arrivée en altitude</span>
-            <span class="pill pill-run"><span class="pill-dot"></span>Ravitos tous les 4km</span>
-            <span class="pill pill-run"><span class="pill-dot"></span>Panorama Alpes</span>
+            <span class="pill pill-run"><span class="pill-dot"></span>Sentiers balisés</span>
+            <span class="pill pill-run"><span class="pill-dot"></span>Arrivée au sommet</span>
           </div>
         </div>
         <div class="parcours-map-wrapper">
-          <div class="map-overlay-label">
-            <span class="map-dot run-dot-sm"></span>Parcours course
-          </div>
-          <div id="map-run" class="map-container"></div>
+          <div class="map-container" id="map-run"></div>
+          <div class="map-overlay-label cond"><span class="map-dot run-dot-sm"></span>Trail</div>
         </div>
       </div>
     </div>
+
   </div>
 </section>

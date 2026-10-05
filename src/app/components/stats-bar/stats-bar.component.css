@@ -1,14 +1,7 @@
 .stats-section {
-  background: var(--forest);
+  background: var(--main);
   position: relative;
   overflow: hidden;
-}
-
-.stats-topo {
-  position: absolute;
-  inset: 0;
-  opacity: 0.15;
-  pointer-events: none;
 }
 
 .stats-bar {
@@ -16,21 +9,18 @@
   z-index: 1;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  max-width: 1240px;
+  max-width: 1280px;
   margin: 0 auto;
 }
 
 .stat-item {
   padding: 36px 32px;
-  border-right: 1px solid rgba(245, 239, 224, 0.08);
+  border-right: 1px solid rgba(243, 231, 211, 0.08);
   display: flex;
   flex-direction: column;
   gap: 6px;
 }
-
-.stat-item:last-child {
-  border-right: none;
-}
+.stat-item:last-child { border-right: none; }
 
 .stat-icon-row {
   display: flex;
@@ -39,28 +29,19 @@
   margin-bottom: 4px;
 }
 
-/* Override pill colors for dark bg */
 .stat-item .pill {
-  background: rgba(245, 239, 224, 0.08);
+  font-size: 11px;
+  background: rgba(243, 231, 211, 0.08);
   color: var(--cream);
-  border-color: rgba(245, 239, 224, 0.15);
+  border-color: rgba(243, 231, 211, 0.15);
 }
-
-.stat-item .pill-swim { background: rgba(79, 168, 209, 0.15); color: #7dd4f4; border-color: rgba(79, 168, 209, 0.2); }
-.stat-item .pill-bike { background: rgba(196, 132, 92, 0.2); color: #e8ac85; border-color: rgba(196, 132, 92, 0.25); }
-.stat-item .pill-run  { background: rgba(91, 181, 148, 0.15); color: var(--sage); border-color: rgba(91, 181, 148, 0.2); }
-
-.stat-item .pill .pill-dot {
-  background: rgba(255, 255, 255, 0.5);
-}
-
-.stat-item .pill-swim .pill-dot { background: var(--swim); }
-.stat-item .pill-bike .pill-dot { background: var(--clay); }
-.stat-item .pill-run .pill-dot  { background: var(--sage); }
+.stat-item .pill-swim { background: rgba(39, 71, 200, 0.2); color: #7da8f4; border-color: rgba(39, 71, 200, 0.25); }
+.stat-item .pill-bike { background: rgba(224, 96, 58, 0.2); color: #f0a07a; border-color: rgba(224, 96, 58, 0.25); }
+.stat-item .pill-run  { background: rgba(29, 122, 116, 0.2); color: #5bbfb8; border-color: rgba(29, 122, 116, 0.25); }
 
 .stat-num {
-  font-family: 'Fraunces', serif;
-  font-weight: 700;
+  font-family: 'League Spartan', sans-serif;
+  font-weight: 900;
   font-size: 36px;
   color: var(--cream);
   display: flex;
@@ -68,18 +49,15 @@
   gap: 4px;
   line-height: 1;
 }
-
 .stat-unit {
-  font-family: 'Inter', sans-serif;
   font-size: 16px;
-  font-weight: 500;
-  opacity: 0.55;
+  font-weight: 600;
+  opacity: .55;
 }
-
 .stat-label {
-  font-family: 'Inter', sans-serif;
+  font-family: 'League Spartan', sans-serif;
   font-size: 11px;
-  color: rgba(245, 239, 224, 0.5);
+  color: rgba(243, 231, 211, 0.5);
   letter-spacing: 1.5px;
   text-transform: uppercase;
   margin-top: 2px;
@@ -87,20 +65,12 @@
 
 @media (max-width: 900px) {
   .stats-bar { grid-template-columns: 1fr 1fr; }
-
   .stat-item {
     padding: 28px 20px;
-    border-right: 1px solid rgba(245, 239, 224, 0.08);
-    border-bottom: 1px solid rgba(245, 239, 224, 0.08);
+    border-right: 1px solid rgba(243, 231, 211, 0.08);
+    border-bottom: 1px solid rgba(243, 231, 211, 0.08);
   }
-
   .stat-item:nth-child(2n) { border-right: none; }
   .stat-item:nth-last-child(-n+2) { border-bottom: none; }
   .stat-num { font-size: 28px; }
-}
-
-@media (max-width: 380px) {
-  .stats-bar { grid-template-columns: 1fr; }
-  .stat-item { border-right: none !important; }
-  .stat-item:last-child { border-bottom: none; }
 }

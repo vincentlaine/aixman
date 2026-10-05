@@ -1,59 +1,38 @@
 #sponsors {
-  padding: 120px 0;
-  background: var(--paper);
+  padding: clamp(72px, 10vw, 140px) clamp(16px, 4vw, 48px);
+  background: var(--sky);
   position: relative;
-  overflow: hidden;
 }
 
-#sponsors .topo-bg { opacity: 0.4; }
-
 .sponsors-header {
-  position: relative;
-  z-index: 1;
   text-align: center;
   margin-bottom: 56px;
 }
-
-.sponsors-header .eyebrow {
-  justify-content: center;
-}
-
-.sponsors-header .eyebrow::before {
-  display: none;
-}
-
-.sponsors-header .h-display {
-  margin-top: 12px;
-  margin-bottom: 16px;
-}
-
+.sponsors-header .lbl { justify-content: center; }
+.sponsors-header .disp { margin-top: 12px; margin-bottom: 16px; }
+.acc-text { color: var(--acc); }
 .sponsors-header p {
-  font-family: 'Inter', sans-serif;
-  font-size: 15px;
-  color: var(--slate);
+  font-family: 'League Spartan', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--fig2);
   max-width: 460px;
   margin: 0 auto;
-  line-height: 1.65;
 }
 
 .sponsors-grid {
-  position: relative;
-  z-index: 1;
   display: flex;
   flex-direction: column;
-  gap: 0;
-  border: 1px solid var(--line);
-  border-radius: 16px;
+  border: 3px solid var(--on-sky);
   overflow: hidden;
-  background: var(--cream);
+  box-shadow: 8px 8px 0 var(--on-sky);
 }
 
 .sponsor-row {
   display: flex;
   align-items: stretch;
-  border-bottom: 1px solid var(--line);
+  border-bottom: 2px solid var(--on-sky);
 }
-
 .sponsor-row:last-child { border-bottom: none; }
 
 .sponsor-tier-label {
@@ -62,14 +41,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: 'Inter', sans-serif;
   font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--slate);
-  border-right: 1px solid var(--line);
-  background: var(--paper);
+  color: var(--on-sky);
+  border-right: 2px solid var(--on-sky);
+  background: color-mix(in oklab, var(--on-sky) 6%, transparent);
   padding: 16px 8px;
   writing-mode: vertical-rl;
   text-orientation: mixed;
@@ -87,51 +62,38 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border-right: 1px solid var(--line);
-  transition: background 0.2s;
+  border-right: 2px solid var(--on-sky);
+  transition: background .2s;
   min-height: 100px;
 }
-
 .sponsor-slot:last-child { border-right: none; }
-
-.sponsor-slot:hover { background: var(--paper); }
-
-.sponsor-slot-titre {
-  min-height: 140px;
-}
+.sponsor-slot:hover { background: color-mix(in oklab, var(--acc) 8%, transparent); }
+.sponsor-slot-titre { min-height: 140px; }
 
 .sponsor-placeholder {
-  font-family: 'Inter', sans-serif;
+  font-family: 'League Spartan', sans-serif;
   font-size: 11px;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 1.5px;
   text-transform: uppercase;
-  color: var(--line);
+  color: color-mix(in oklab, var(--on-sky) 35%, transparent);
 }
 
 .sponsor-cta {
-  position: relative;
-  z-index: 1;
   text-align: center;
   margin-top: 40px;
 }
-
 .sponsor-cta p {
-  font-family: 'Inter', sans-serif;
-  font-size: 14px;
-  color: var(--slate);
+  font-family: 'League Spartan', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--fig2);
   margin-bottom: 16px;
 }
 
 @media (max-width: 768px) {
-  #sponsors { padding: 72px 0; }
-
-  .sponsor-tier-label {
-    width: 52px;
-    font-size: 9px;
-    writing-mode: vertical-rl;
-  }
-
+  #sponsors { padding: 72px 20px; }
+  .sponsor-tier-label { width: 52px; font-size: 9px; }
   .sponsor-slot { padding: 24px 12px; min-height: 80px; }
   .sponsor-slot-titre { min-height: 100px; }
 }

@@ -19,7 +19,7 @@ export interface Translations {
 const TRANSLATIONS: Record<Lang, Translations> = {
   fr: {
     eyebrow: 'Triathlon Distance L · Savoie',
-    date: '6 Juin 2026',
+    date: '6 Juin 2027',
     navEvent: "L'épreuve",
     navCourses: 'Parcours',
     navRegister: 'Inscriptions',
@@ -32,7 +32,7 @@ const TRANSLATIONS: Record<Lang, Translations> = {
   },
   en: {
     eyebrow: 'Long Distance Triathlon · Savoie',
-    date: '6 June 2026',
+    date: '6 June 2027',
     navEvent: 'The Race',
     navCourses: 'Courses',
     navRegister: 'Register',

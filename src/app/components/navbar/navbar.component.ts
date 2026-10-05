@@ -24,4 +24,8 @@ export class NavbarComponent {
   closeMenu(): void {
     this.menuOpen.set(false);
   }
+
+  onMenuClick(e: Event): void {
+    if ((e.target as Element).closest('a')) this.menuOpen.set(false);
+  }
 }

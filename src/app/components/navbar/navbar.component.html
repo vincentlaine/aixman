@@ -1,33 +1,30 @@
 <nav [class.scrolled]="scrolled()">
-  <div class="nav-inner">
-    <a href="#hero" class="nav-brand">
-      <img src="assets/logo-aixman.png" alt="AixMan logo" />
-      <div class="nav-brand-text">
-        <span class="nav-brand-name">AixMan</span>
-        <span class="nav-brand-sub">Triathlon · Aix-les-Bains</span>
-      </div>
-    </a>
+  <a class="brand" href="#hero">
+    <span>AixMan</span>
+  </a>
 
-    <div class="nav-links" [class.open]="menuOpen()">
-      <a href="#presentation" (click)="closeMenu()">{{ langService.t().navEvent }}</a>
-      <a href="#parcours" (click)="closeMenu()">{{ langService.t().navCourses }}</a>
-      <a href="#inscriptions" (click)="closeMenu()">{{ langService.t().navRegister }}</a>
+  <div class="nav-r">
+    <div class="nav-l">
+      <a href="#ride" (click)="closeMenu()">{{ langService.t().navCourses }}</a>
       <a href="#infos" (click)="closeMenu()">{{ langService.t().navInfo }}</a>
-      <a href="#palmares" (click)="closeMenu()">{{ langService.t().navResults }}</a>
-      <a href="#sponsors" (click)="closeMenu()">Sponsors</a>
-      <a href="#inscriptions" class="nav-cta" (click)="closeMenu()">{{ langService.t().navCta }}</a>
-      <button class="nav-lang" (click)="langService.toggle()">{{ langService.t().langToggle }}</button>
+      <a href="#inscriptions" (click)="closeMenu()">{{ langService.t().navRegister }}</a>
     </div>
-
-    <button
-      class="nav-burger"
-      [class.open]="menuOpen()"
-      (click)="toggleMenu()"
-      aria-label="Menu"
-    >
-      <span></span>
-      <span></span>
-      <span></span>
+    <div class="nav-lang">
+      <button [class.on]="langService.lang() === 'fr'" (click)="langService.set('fr')">FR</button>
+      <button [class.on]="langService.lang() === 'en'" (click)="langService.set('en')">EN</button>
+    </div>
+    <a class="btn btn-primary nav-cta" href="#inscriptions">{{ langService.t().navCta }}</a>
+    <button class="burger" [class.open]="menuOpen()" (click)="toggleMenu()" aria-label="Menu">
+      <i></i><i></i>
     </button>
   </div>
 </nav>
+
+<div id="menu" [class.open]="menuOpen()" (click)="onMenuClick($event)">
+  <div class="ml">
+    <a class="disp" href="#ride" (click)="closeMenu()">{{ langService.t().navCourses }}</a>
+    <a class="disp" href="#infos" (click)="closeMenu()">{{ langService.t().navInfo }}</a>
+    <a class="disp" href="#inscriptions" (click)="closeMenu()">{{ langService.t().navRegister }}</a>
+  </div>
+  <a class="btn btn-primary" href="#inscriptions" (click)="closeMenu()">{{ langService.t().navCta }}</a>
+</div>

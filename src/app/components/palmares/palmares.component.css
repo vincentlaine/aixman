@@ -1,11 +1,9 @@
 #palmares {
-  padding: 120px 0;
-  background: var(--paper);
+  padding: clamp(72px, 10vw, 140px) clamp(16px, 4vw, 48px);
+  background: var(--sky);
   position: relative;
   overflow: hidden;
 }
-
-#palmares .topo-bg { opacity: 0.4; }
 
 .palmares-content {
   position: relative;
@@ -16,15 +14,9 @@
   text-align: center;
 }
 
-.palmares-content .eyebrow {
-  justify-content: center;
-}
+.palmares-content .lbl { justify-content: center; }
 
-.palmares-content .eyebrow::before {
-  display: none;
-}
-
-.palmares-content .h-display {
+.palmares-content .disp {
   margin-top: 12px;
   margin-bottom: 40px;
 }
@@ -33,29 +25,28 @@
   width: 120px;
   height: 120px;
   border-radius: 50%;
-  background: var(--cream);
-  border: 1px solid var(--line);
+  background: var(--sky);
+  border: 3px solid var(--on-sky);
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 52px;
   margin-bottom: 32px;
-  box-shadow: 0 16px 40px rgba(30, 58, 46, 0.1);
+  box-shadow: 6px 6px 0 var(--on-sky);
   animation: gentle-bob 5s ease-in-out infinite;
 }
 
 .palmares-text {
-  font-family: 'Inter', sans-serif;
-  font-size: 16px;
-  color: var(--slate);
-  line-height: 1.75;
+  font-family: 'League Spartan', sans-serif;
+  font-size: 17px;
+  font-weight: 500;
+  color: var(--fig2);
+  line-height: 1.65;
   max-width: 480px;
   margin-bottom: 32px;
 }
 
 @media (max-width: 768px) {
-  #palmares { padding: 72px 0; }
-
+  #palmares { padding: 72px 20px; }
   .palmares-circle { width: 90px; height: 90px; font-size: 38px; }
-  .palmares-text { font-size: 15px; }
 }
