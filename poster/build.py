@@ -63,7 +63,7 @@ svg=f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1414" width="2
 <rect y="1100" width="1000" height="320" class="c-lake"/><rect y="1124" width="1000" height="320" fill="url(#scallop)"/>
 <g stroke-linecap="round" class="refl-g">{''.join(f'<line x1="{770-(130-i*16)}" x2="{770+(130-i*16)}" y1="{1130+i*26}" y2="{1130+i*26}" class="refl" stroke-width="{14-i*1.8}"/>' for i in range(5))}</g>
 <g transform="translate(400,1185) scale(1.9)">{A['sw']}</g>
-<g class="title"><text x="50" y="290" class="t1" textLength="900" lengthAdjust="spacingAndGlyphs">AIXMAN</text><text x="50" y="560" class="t1" textLength="610" lengthAdjust="spacingAndGlyphs">2027</text></g>
+<g class="title"><text x="46" y="250" class="t1" style="font-size:223px">AIXMAN</text><text x="40" y="520" class="t1" style="font-size:300px">2027</text></g>
 <rect x="210" y="1235" width="580" height="76" rx="38" class="c-cream"/><text x="500" y="1292" text-anchor="middle" class="pill" fill="#1E2A44">SAMEDI 5 JUIN</text>
 <rect x="110" y="1326" width="780" height="64" rx="32" class="c-main"/><text x="500" y="1371" text-anchor="middle" class="disc">NATATION  ·  VÉLO  ·  TRAIL</text>
 </svg>'''
