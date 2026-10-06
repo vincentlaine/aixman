@@ -1,93 +1,211 @@
 <nav>
-<a class="brand" href="#top"><span>AixMan</span></a>
-<div class="nav-r">
-<div class="nav-l"><a href="#ride" data-en="Course">Parcours</a><a href="#infos" data-en="Info">Infos</a><a href="#inscription" data-en="Entry">Inscriptions</a></div>
-<div class="lang"><button class="on" (click)="setLang('fr')">FR</button><button (click)="setLang('en')">EN</button></div>
-<a class="btn" href="#inscription" data-en="Register">S'inscrire</a>
-<button class="burger" aria-label="Menu" (click)="toggleMenu()"><i></i><i></i></button>
-</div>
+  <a class="brand" href="#top"><span>AixMan</span></a>
+  <div class="nav-r">
+    <div class="nav-l">
+      <a href="#ride" data-en="Course">Parcours</a><a href="#infos" data-en="Info">Infos</a
+      ><a href="#inscription" data-en="Entry">Inscriptions</a>
+    </div>
+    <div class="lang">
+      <button class="on" (click)="setLang('fr')">FR</button
+      ><button (click)="setLang('en')">EN</button>
+    </div>
+    <a class="btn" href="#inscription" data-en="Register">S'inscrire</a>
+    <button class="burger" aria-label="Menu" (click)="toggleMenu()"><i></i><i></i></button>
+  </div>
 </nav>
-<div id="menu" (click)="onMenuClick($event)"><div class="ml"><a class="disp" href="#ride" data-en="Course">Parcours</a><a class="disp" href="#infos" data-en="Info">Infos</a><a class="disp" href="#inscription" data-en="Entry">Inscriptions</a></div><a class="btn" href="#inscription" data-en="Register">S'inscrire</a></div>
+<div id="menu" (click)="onMenuClick($event)">
+  <div class="ml">
+    <a class="disp" href="#ride" data-en="Course">Parcours</a
+    ><a class="disp" href="#infos" data-en="Info">Infos</a
+    ><a class="disp" href="#inscription" data-en="Entry">Inscriptions</a>
+  </div>
+  <a class="btn" href="#inscription" data-en="Register">S'inscrire</a>
+</div>
 <div id="top"></div>
 <section id="ride" data-screen-label="Parcours animé">
-<div class="stick">
-<svg id="scene" preserveAspectRatio="none" aria-hidden="true"></svg>
-<div class="ov" id="ov-hero">
-<div class="kick cond"><i></i><span data-en="Long-distance triathlon · 2nd edition">Triathlon distance L · 2e édition</span></div>
-<h1 class="disp">AixMan<br>2027</h1>
-<div class="meta"><span><b data-en="Sunday 6 June 2027">Dimanche 6 juin 2027</b></span><span data-en="Lake Bourget · Aix-les-Bains">Lac du Bourget · Aix-les-Bains</span><a class="btn" href="#inscription" data-en="Register">S'inscrire</a></div>
-</div>
-<div class="hint cond" id="hint"><span data-en="Scroll">Défiler</span><i></i></div>
-<div class="ov card" id="ov-swim">
-<div class="num cond"><em>01</em><span data-en="Swim">Natation</span></div>
-<h2 class="disp">2<small>km</small></h2>
-<p data-en="One open-water loop in Lake Bourget, France's largest natural lake. Start from Grand Port beach.">Une boucle en eau libre dans le lac du Bourget, le plus grand lac naturel de France. Départ plage du Grand Port.</p>
-</div>
-<div class="ov card" id="ov-bike">
-<div class="num cond"><em>02</em><span data-en="Bike">Vélo</span></div>
-<h2 class="disp">100<small>km</small></h2>
-<div class="dplus">2 000 m D+</div>
-<p data-en="Mountain roads high above the lake, with the water never far below.">Des routes de montagne au-dessus du lac, avec l'eau toujours en contrebas.</p>
-</div>
-<div class="ov card" id="ov-run">
-<div class="num cond"><em>03</em><span data-en="Trail run">Trail</span></div>
-<h2 class="disp">13<small>km</small></h2>
-<div class="dplus">1 200 m D+</div>
-<p data-en="The legendary climb from the lakeshore to the summit of Mont Revard, 1,562 m.">La montée mythique des rives du lac jusqu'au sommet du Mont Revard, 1 562 m.</p>
-</div>
-<div class="ov" id="ov-finish">
-<div class="cond" style="font-size:14px" data-en="Mont Revard · 1,562 m">Mont Revard · 1 562 m</div>
-<h2 class="disp" data-en="Finish">Arrivée</h2>
-<p data-en="115 km. 3,200 m of climbing. One line.">115 km. 3 200 m de dénivelé. Une seule ligne.</p>
-<a class="btn" href="#inscription" data-en="Take the start">Prendre le départ</a>
-</div>
-<div id="hud" class="cond">
-<div class="bars">
-<div class="bar"><span data-en="Swim">Natation</span><b><i></i></b></div>
-<div class="bar"><span data-en="Bike">Vélo</span><b><i></i></b></div>
-<div class="bar"><span>Trail</span><b><i></i></b></div>
-</div>
-<div class="stat"><span id="hud-disc">Natation</span><strong><span id="hud-km">0</span> km</strong></div>
-<div class="stat"><span>Alt.</span><strong><span id="hud-alt">231</span> m</strong></div>
-</div>
-</div>
+  <div class="stick">
+    <svg id="scene" preserveAspectRatio="none" aria-hidden="true"></svg>
+    <div class="ov" id="ov-hero">
+      <div class="kick cond">
+        <i></i
+        ><span data-en="Long-distance triathlon · 3rd edition"
+          >Triathlon distance L · 3e édition</span
+        >
+      </div>
+      <h1 class="disp">AixMan<br />2027</h1>
+      <div class="meta">
+        <span><b data-en="Saturday 5 June 2027">Samedi 5 juin 2027</b></span
+        ><span data-en="Lake Bourget · Aix-les-Bains">Lac du Bourget · Aix-les-Bains</span
+        ><a class="btn" href="#inscription" data-en="Register">S'inscrire</a>
+      </div>
+    </div>
+    <div class="hint cond" id="hint"><span data-en="Scroll">Défiler</span><i></i></div>
+    <div class="ov card" id="ov-swim">
+      <div class="num cond"><em>01</em><span data-en="Swim">Natation</span></div>
+      <h2 class="disp">2<small>km</small></h2>
+      <p
+        data-en="One open-water loop in Lake Bourget, France's largest natural lake. Start from Plage du Rowing."
+      >
+        Une boucle en eau libre dans le lac du Bourget, le plus grand lac naturel de France. Départ
+        plage du Rowing.
+      </p>
+    </div>
+    <div class="ov card" id="ov-bike">
+      <div class="num cond"><em>02</em><span data-en="Bike">Vélo</span></div>
+      <h2 class="disp">100<small>km</small></h2>
+      <div class="dplus">2 000 m D+</div>
+      <p data-en="Mountain roads high above the lake, with the water never far below.">
+        Des routes de montagne au-dessus du lac, avec l'eau toujours en contrebas.
+      </p>
+    </div>
+    <div class="ov card" id="ov-run">
+      <div class="num cond"><em>03</em><span data-en="Trail run">Trail</span></div>
+      <h2 class="disp">13<small>km</small></h2>
+      <div class="dplus">1 200 m D+</div>
+      <p data-en="The legendary climb from the lakeshore to the summit of Mont Revard, 1,562 m.">
+        La montée mythique des rives du lac jusqu'au sommet du Mont Revard, 1 562 m.
+      </p>
+    </div>
+    <div class="ov" id="ov-finish">
+      <div class="cond" style="font-size: 14px" data-en="Mont Revard · 1,562 m">
+        Mont Revard · 1 562 m
+      </div>
+      <h2 class="disp" data-en="Finish">Arrivée</h2>
+      <p data-en="115 km. 3,200 m of climbing. One line.">
+        115 km. 3 200 m de dénivelé. Une seule ligne.
+      </p>
+      <a class="btn" href="#inscription" data-en="Take the start">Prendre le départ</a>
+    </div>
+    <div id="hud" class="cond">
+      <div class="bars">
+        <div class="bar">
+          <span data-en="Swim">Natation</span><b><i></i></b>
+        </div>
+        <div class="bar">
+          <span data-en="Bike">Vélo</span><b><i></i></b>
+        </div>
+        <div class="bar">
+          <span>Trail</span><b><i></i></b>
+        </div>
+      </div>
+      <div class="stat">
+        <span id="hud-disc">Natation</span><strong><span id="hud-km">0</span> km</strong>
+      </div>
+      <div class="stat">
+        <span>Alt.</span><strong><span id="hud-alt">231</span> m</strong>
+      </div>
+    </div>
+  </div>
 </section>
 <section class="blk" id="infos" data-screen-label="Infos">
-<div class="wrap">
-<div class="lbl cond"><i></i><span data-en="The essentials">L'essentiel</span></div>
-<h2 class="disp" data-en="One day,&lt;br&gt;three disciplines">Un jour,<br>trois sports</h2>
-<div class="facts">
-<div class="fact"><span class="cond">Date</span><strong data-en="Sun. 6 June 2027">Dim. 6 juin 2027</strong></div>
-<div class="fact"><span class="cond" data-en="Start">Départ</span><strong data-en="7:00 · Grand Port, Aix-les-Bains">7h00 · Grand Port, Aix-les-Bains</strong></div>
-<div class="fact"><span class="cond" data-en="Finish">Arrivée</span><strong>Mont Revard · 1 562 m</strong></div>
-<div class="fact"><span class="cond">Format</span><strong data-en="Solo or relay of 2–3">Solo ou relais de 2 à 3</strong></div>
-</div>
-<div class="prog">
-<div class="day"><h3 class="disp" data-en="Saturday 5 June">Samedi 5 juin</h3><ul><li><span>9h–18h</span><div data-en="Bib collection, race village">Retrait des dossards, village</div></li><li><span>17h</span><div data-en="Athlete briefing">Briefing athlètes</div></li></ul></div>
-<div class="day"><h3 class="disp" data-en="Sunday 6 June">Dimanche 6 juin</h3><ul><li><span>7h</span><div data-en="Swim start">Départ natation</div></li><li><span>16h</span><div data-en="Awards ceremony">Remise des prix</div></li></ul></div>
-</div>
-</div>
+  <div class="wrap">
+    <div class="lbl cond"><i></i><span data-en="The essentials">L'essentiel</span></div>
+    <h2 class="disp" data-en="One day,&lt;br&gt;three disciplines">Un jour,<br />trois sports</h2>
+    <div class="facts">
+      <div class="fact">
+        <span class="cond">Date</span><strong data-en="Sun. 6 June 2027">Sam. 5 juin 2027</strong>
+      </div>
+      <div class="fact">
+        <span class="cond" data-en="Start">Départ</span
+        ><strong data-en="9:00 · Plage du Rowing, Aix-les-Bains"
+          >9h00 · Plage du Rowing, Aix-les-Bains</strong
+        >
+      </div>
+      <div class="fact">
+        <span class="cond" data-en="Finish">Arrivée</span><strong>Mont Revard · 1 562 m</strong>
+      </div>
+      <div class="fact">
+        <span class="cond">Format</span
+        ><strong data-en="Solo or relay of 2–3">Solo ou relais de 2 à 3</strong>
+      </div>
+    </div>
+    <div class="prog">
+      <div class="day">
+        <h3 class="disp" data-en="Friday 4 June">Vendredi 4 juin</h3>
+        <ul>
+          <li>
+            <span>9h–18h</span>
+            <div data-en="Bib collection, race village">Retrait des dossards, village</div>
+          </li>
+          <li>
+            <span>19h</span>
+            <div data-en="Athlete briefing">Briefing athlètes</div>
+          </li>
+          <li>
+            <span>20h</span>
+            <div data-en="BBQ party">Barbecue</div>
+          </li>
+        </ul>
+      </div>
+      <div class="day">
+        <h3 class="disp" data-en="Saturday 5 June">Samedi 5 juin</h3>
+        <ul>
+          <li>
+            <span>9h</span>
+            <div data-en="Swim start">Départ natation</div>
+          </li>
+          <li>
+            <span>16h</span>
+            <div data-en="Awards ceremony">Remise des prix</div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
 </section>
 <section class="blk" id="inscription" data-screen-label="Inscriptions">
-<div class="wrap">
-<div class="lbl cond"><i></i><span data-en="Entries 2027">Inscriptions 2027</span></div>
-<h2 class="disp" data-en="Take the&lt;br&gt;start">Prenez le<br>départ</h2>
-<div class="tarifs">
-<div class="tarif hot"><span class="cond" data-en="Until 31 Dec. 2026">Jusqu'au 31 déc. 2026</span><h3>Early bird</h3><div class="price">85€</div></div>
-<div class="tarif"><span class="cond" data-en="Jan. → May 2027">Janv. → mai 2027</span><h3 data-en="Solo">Individuel</h3><div class="price">105€</div></div>
-<div class="tarif"><span class="cond" data-en="Team of 2 or 3">Équipe de 2 ou 3</span><h3 data-en="Relay">Relais</h3><div class="price">120€</div></div>
-</div>
-<div class="insc-cta"><span data-en="Limited places · Licence or medical certificate required">Places limitées · Licence ou certificat médical requis</span><a class="btn" href="#" data-en="Register now">S'inscrire maintenant</a></div>
-</div>
+  <div class="wrap">
+    <div class="lbl cond"><i></i><span data-en="Entries 2027">Inscriptions 2027</span></div>
+    <h2 class="disp" data-en="Take the&lt;br&gt;start">Prenez le<br />départ</h2>
+    <div class="tarifs">
+      <div class="tarif hot">
+        <span class="cond" data-en="Until 31 Dec. 2026">Jusqu'au 31 déc. 2026</span>
+        <h3>Early bird</h3>
+        <div class="price">10€</div>
+      </div>
+      <div class="tarif">
+        <span class="cond" data-en="Jan. → May 2027">Janv. → mai 2027</span>
+        <h3 data-en="Solo">Individuel</h3>
+        <div class="price">11€</div>
+      </div>
+      <div class="tarif">
+        <span class="cond" data-en="Team of 2 or 3">Équipe de 2 ou 3</span>
+        <h3 data-en="Relay">Relais</h3>
+        <div class="price">10€</div>
+      </div>
+    </div>
+    <div class="insc-cta">
+      <span data-en="Limited places · Licence or medical certificate required"
+        >Places limitées · Licence ou certificat médical requis</span
+      ><a class="btn" href="#" data-en="Register now">S'inscrire maintenant</a>
+    </div>
+  </div>
 </section>
 <footer data-screen-label="Footer">
-<div class="ridge-wrap"><div class="ridge"></div></div>
-<div class="wrap">
-<div class="foot">
-<div class="disp big">AixMan</div>
-<div><h4 class="cond">Contact</h4><ul><li><a href="mailto:contact&#64;aixman.fr">contact&#64;aixman.fr</a></li><li>Aix-les-Bains, Savoie</li></ul></div>
-<div><h4 class="cond" data-en="Follow">Suivre</h4><ul><li><a href="#">Instagram</a></li><li><a href="#">Facebook</a></li><li><a href="#">Strava</a></li></ul></div>
-</div>
-<div class="legal"><span>© 2027 AixMan</span><span data-en="Long-distance triathlon · Lake Bourget">Triathlon distance L · Lac du Bourget</span></div>
-</div>
+  <div class="ridge-wrap"><div class="ridge"></div></div>
+  <div class="wrap">
+    <div class="foot">
+      <div class="disp big">AixMan</div>
+      <div>
+        <h4 class="cond">Contact</h4>
+        <ul>
+          <li><a href="mailto:contact&#64;aixman.fr">contact&#64;aixman.fr</a></li>
+          <li>Aix-les-Bains, Savoie</li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="cond" data-en="Follow">Suivre</h4>
+        <ul>
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">Strava</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="legal">
+      <span>© 2027 AixMan</span
+      ><span data-en="Long-distance triathlon · Lake Bourget"
+        >Triathlon distance L · Lac du Bourget</span
+      >
+    </div>
+  </div>
 </footer>
