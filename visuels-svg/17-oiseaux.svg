@@ -1,23 +1,2 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="-20 -20 640 120" width="640" height="120"><style>
-
-
-
-
-:root{--sky:#F3E7D3;--sun:#F2B33D;--far:#F4B6A6;--far2:#E0603A;--deco:#F2B33D;--deco2:#7FB8A4;--mid:#1D7A74;--mid2:#145E59;--lake:#2747C8;--lake2:#1B338F;--main:#1E2A44;--main2:#E0603A;--snow:#F3E7D3;--fig:#1E2A44;--fig2:#4A5677;--acc:#E0603A;--cream:#F3E7D3;--on-sky:#1E2A44}
-.c-deco{fill:var(--deco)}.c-deco2{fill:var(--deco2)}.c-cream{fill:var(--cream)}.c-sky{fill:var(--sky)}.c-sun{fill:var(--sun)}.c-far{fill:var(--far)}.c-far2{fill:var(--far2)}.c-mid{fill:var(--mid)}.c-mid2{fill:var(--mid2)}.c-lake{fill:var(--lake)}.c-lake2{fill:var(--lake2)}.c-main{fill:var(--main)}.c-main2{fill:var(--main2)}.c-snow{fill:var(--snow);stroke:var(--snow);stroke-width:4;stroke-linejoin:round}.c-acc{fill:var(--acc)}.c-fig{fill:var(--fig)}
-.arc{fill:none;stroke:var(--cream);stroke-width:4;stroke-linecap:round;opacity:.6}.trunk{stroke:var(--mid2);stroke-width:5;stroke-linecap:round}
-.refl{stroke:var(--sun);stroke-linecap:round}.pole{stroke:var(--cream);stroke-width:5}
-.road{fill:none;stroke:var(--cream);stroke-width:5;stroke-dasharray:34 26;stroke-linecap:round;opacity:.85}
-.wave{stroke:var(--cream);stroke-width:4;stroke-linecap:round;opacity:.55}
-.spoke{stroke:var(--fig2);stroke-width:2.5}.rim{fill:none;stroke:var(--fig2);stroke-width:2}
-.speed{stroke:var(--fig);stroke-width:4;stroke-linecap:round}
-.bars{fill:none;stroke:var(--fig);stroke-width:6;stroke-linecap:round;stroke-linejoin:round}.saddle{stroke:var(--fig);stroke-width:7;stroke-linecap:round}.shoe{stroke:var(--fig);stroke-width:9;stroke-linecap:round}.shoe.back{stroke:var(--fig2)}
-.limb{stroke:var(--fig);stroke-linecap:round;fill:none}.limb.back{stroke:var(--fig2)}.limb.deep{stroke:var(--lake2);stroke-width:12}
-.w14{stroke-width:14}.w12{stroke-width:13}.w11{stroke-width:11}.w10{stroke-width:10}.w9{stroke-width:9}.w8{stroke-width:8}.w5{stroke-width:5}
-.goggle{stroke:var(--cream);stroke-width:5;stroke-linecap:round}.wheel{fill:none;stroke:var(--fig);stroke-width:7}
-.frame{fill:none;stroke:var(--fig);stroke-width:6;stroke-linejoin:round;stroke-linecap:round}.torso{stroke:var(--acc);stroke-width:27;stroke-linecap:round}
-
-
-
-
-.sign-bg{fill:var(--acc)}.sign-t{font:800 20px 'League Spartan',sans-serif;letter-spacing:.12em;fill:var(--sky);text-anchor:middle}.sign-n{font:900 26px 'League Spartan',sans-serif;fill:var(--sky);text-anchor:middle}.pole2{stroke:var(--fig);stroke-width:6}.bird{fill:none;stroke:var(--on-sky);stroke-width:3;stroke-linecap:round;stroke-linejoin:round}</style><defs></defs><path d="M-14,-4 Q-7,-10 0,0 Q7,-10 14,-4" class="bird" transform="translate(40,40) scale(1.4)"/><path d="M-14,-4 Q-7,-10 0,0 Q7,-10 14,-4" class="bird" transform="translate(190,70) scale(1.5999999999999999)"/><path d="M-14,-4 Q-7,-10 0,0 Q7,-10 14,-4" class="bird" transform="translate(340,40) scale(1.7999999999999998)"/><path d="M-14,-4 Q-7,-10 0,0 Q7,-10 14,-4" class="bird" transform="translate(490,70) scale(2)"/></svg>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-20 -20 640 120" width="640" height="120"><defs/><path d="M-14,-4 Q-7,-10 0,0 Q7,-10 14,-4" transform="translate(40,40) scale(1.4)" fill="none" stroke="#1E2A44" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M-14,-4 Q-7,-10 0,0 Q7,-10 14,-4" transform="translate(190,70) scale(1.5999999999999999)" fill="none" stroke="#1E2A44" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M-14,-4 Q-7,-10 0,0 Q7,-10 14,-4" transform="translate(340,40) scale(1.7999999999999998)" fill="none" stroke="#1E2A44" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M-14,-4 Q-7,-10 0,0 Q7,-10 14,-4" transform="translate(490,70) scale(2)" fill="none" stroke="#1E2A44" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
